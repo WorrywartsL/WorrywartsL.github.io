@@ -32,6 +32,7 @@
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="L's Home" type="application/rss+xml">
 </head>
 
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
 <!--动态线条背景-->
@@ -372,10 +373,52 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
             </div>
             <div class="tag-chips">
                 
+                
+                <a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" title="归并排序: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="归并排序" style="background-color: #F9EBEA;">归并排序
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" title="快速排序: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="快速排序" style="background-color: #F5EEF8;">快速排序
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
             </div>
         </div>
     </div>
 </div>
+
+    
+    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
+<style type="text/css">
+    #tag-wordcloud {
+        width: 100%;
+        height: 300px;
+    }
+</style>
+
+<div class="container" data-aos="fade-up">
+    <div class="card">
+        <div id="tag-wordcloud" class="card-content"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
+<script type="text/javascript">
+    
+
+    $('#tag-wordcloud').jQCloud([{"text":"归并排序","weight":1,"link":"/tags/归并排序/"},{"text":"快速排序","weight":1,"link":"/tags/快速排序/"}], {
+        autoResize: true
+    });
+</script>
 
     
 
@@ -566,6 +609,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 <div class="progress-bar"></div>
 
+<script src="/js/prism/prism.js" async></script>
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
