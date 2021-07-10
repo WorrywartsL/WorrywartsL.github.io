@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-07-10T02:44:48.469Z</updated>
+  <updated>2021-07-10T23:28:08.798Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,81 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>差分(Adjacent_difference)</title>
+    <link href="http://example.com/2021/07/11/%E5%B7%AE%E5%88%86(Adjacent_difference)/"/>
+    <id>http://example.com/2021/07/11/%E5%B7%AE%E5%88%86(Adjacent_difference)/</id>
+    <published>2021-07-10T23:26:29.708Z</published>
+    <updated>2021-07-10T23:28:08.798Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简介-Introduction&quot;&gt;&lt;a href=&quot;#简介-Introduction&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="基础算法" scheme="http://example.com/categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="差分" scheme="http://example.com/tags/%E5%B7%AE%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前缀和</title>
+    <link href="http://example.com/2021/07/11/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    <id>http://example.com/2021/07/11/%E5%89%8D%E7%BC%80%E5%92%8C/</id>
+    <published>2021-07-10T23:16:03.086Z</published>
+    <updated>2021-07-10T23:25:40.083Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简介-Introduction&quot;&gt;&lt;a href=&quot;#简介-Introduction&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="基础算法" scheme="http://example.com/categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="前缀和" scheme="http://example.com/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>高精度(High Accuracy)</title>
+    <link href="http://example.com/2021/07/11/%E9%AB%98%E7%B2%BE%E5%BA%A6(High%20Accuracy)/"/>
+    <id>http://example.com/2021/07/11/%E9%AB%98%E7%B2%BE%E5%BA%A6(High%20Accuracy)/</id>
+    <published>2021-07-10T23:15:58.033Z</published>
+    <updated>2021-07-10T23:31:23.045Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简介-Introduction&quot;&gt;&lt;a href=&quot;#简介-Introduction&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="基础算法" scheme="http://example.com/categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="高精度" scheme="http://example.com/tags/%E9%AB%98%E7%B2%BE%E5%BA%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>二分查找(Binary Search)</title>
@@ -67,7 +142,7 @@
     <link href="http://example.com/2021/07/08/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F(Quick%20sort)/"/>
     <id>http://example.com/2021/07/08/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F(Quick%20sort)/</id>
     <published>2021-07-08T14:26:32.927Z</published>
-    <updated>2021-07-10T03:25:21.971Z</updated>
+    <updated>2021-07-10T23:20:38.106Z</updated>
     
     
       
@@ -79,6 +154,8 @@
       
     
     
+    
+    <category term="基础算法" scheme="http://example.com/categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/"/>
     
     
     <category term="快速排序" scheme="http://example.com/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>

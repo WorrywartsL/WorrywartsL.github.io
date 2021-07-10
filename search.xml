@@ -4,6 +4,81 @@
   
     
     <entry>
+      <title>差分(Adjacent_difference)</title>
+      <link href="/2021/07/11/%E5%B7%AE%E5%88%86(Adjacent_difference)/"/>
+      <url>/2021/07/11/%E5%B7%AE%E5%88%86(Adjacent_difference)/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介-Introduction"><a href="#简介-Introduction" class="headerlink" title="简介(Introduction)"></a>简介(Introduction)</h2><blockquote><blockquote><p>差分与前缀和相对，可以视为前缀和的逆运算。差分它可以维护多次对序列的一个区间修改一个数。</p></blockquote></blockquote><h2 id="一维差分示例-Example"><a href="#一维差分示例-Example" class="headerlink" title="一维差分示例(Example)"></a>一维差分示例(Example)</h2><p>数列：</p><blockquote><p>$\begin{matrix} 2&amp;3&amp;5&amp;7&amp;11&amp;13&amp;17&amp;19\end{matrix}$</p></blockquote><p>差分处理之后：</p><blockquote><p>$\begin{matrix} 2&amp;1&amp;2&amp;2&amp;4&amp;2&amp;4&amp;2\end{matrix}$</p></blockquote><p>可以看到，差分后的数列用前缀和处理后可以得到：</p><blockquote><p>$\begin{matrix} 2&amp;3&amp;5&amp;7&amp;11&amp;13&amp;17&amp;19\end{matrix}$</p></blockquote><p>即为原数列。<br>通常情况下我们也并不关心差分后的结果，只关心差分并处理最后再前缀和后的结果。</p><h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">void adjdif(int a[], int b[],int n)&#123;  for(int i = 1; i &lt;= n ;i++)  b[i] = a[i] - a[i -1];&#125;</code></pre><p>和前缀和对应的，c++标准库中也实现了差分函数：</p><pre><code class="line-numbers language-cpp"># include &lt;numeric&gt;std::adjacent_difference(a, a + n, b);</code></pre><p>利用差分后再做前缀和可以得到原数列的性质，可以通过改变差分后的数组从而改变原数组。</p><pre><code class="line-numbers language-cpp">void Insert(int b[], int c)&#123;  b[1] += c;&#125;</code></pre><p>该函数使差分数组的第一个元素加上了常数$c$,可以想到，在做前缀和处理，回到原数组的时候，由递推公式为：$a[i] = a[i -1] + b[i];$，可以得到原数组所有的元素都将加上$c$。<br>再通过这个性质，做一点变形，有：</p><pre><code class="line-numbers language-cpp">void Insert(int b[],int l ,int r, int c)&#123;//l在r的左边(或重合)  b[l] += c;  b[r + 1] -=c;&#125;</code></pre><p>不难理解，该函数可以将原数组$[l,r]$部分的每个元素都加上常数$c$。    </p><p>基于此，我们甚至可以使用全初始化为0的数组来初始化原数组。只要把区间$[l,r]$缩小到每一个元素(l和r重合时)，根据<strong>函数可以将原数组$[l,r]$部分每个元素都加上c</strong>可以将一个元素赋予要赋的值。</p><p>所以所有的操作可以直接从差分数组本身开始，而不必用原数组做差分后操作，最后再前缀和。</p><h2 id="二维差分示例-Example"><a href="#二维差分示例-Example" class="headerlink" title="二维差分示例(Example)"></a>二维差分示例(Example)</h2><p>通过一维前缀和的启发，我们知道第一个差分操作是不必要的。初始化与修改都可以在差分数组中得到。二维也同理。<br>只要有类似的$Insert$函数即可。这里先给出代码，后给出解释。</p><h2 id="实现代码-Code"><a href="#实现代码-Code" class="headerlink" title="实现代码(Code)"></a>实现代码(Code)</h2><pre><code class="line-numbers language-cpp">void Insert(int x1, int x2, int y1, int y2, int c)&#123;//点(x1,y1) 在 (x2,y2)的左上方(或重合)  b[x1][y1] +=c;  b[x2 + 1][y2] -= c;  b[x2][y2 + 1] -= c;  b[x2][y2] +=c;&#125;</code></pre><h2 id="示例-Example"><a href="#示例-Example" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/11/YQJo1jGzCyStwE2.jpg" alt="二维差分示例"></p><p>由图不难得到代码中的操作公式~</p><hr><p>以上是一维、二维差分的板子，记下就行啦~<br>同样的，高维的和树相关的暂时还没学。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 基础算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 差分 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>前缀和</title>
+      <link href="/2021/07/11/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+      <url>/2021/07/11/%E5%89%8D%E7%BC%80%E5%92%8C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介-Introduction"><a href="#简介-Introduction" class="headerlink" title="简介(Introduction)"></a>简介(Introduction)</h2><blockquote><blockquote><p>前缀和是一种常用的、较为高效的预处理方式。能够有效降低查询的时间复杂度。前缀和可以理解为数组前$n$项的和。</p></blockquote></blockquote><h2 id="一维前缀和示例-Example"><a href="#一维前缀和示例-Example" class="headerlink" title="一维前缀和示例(Example)"></a>一维前缀和示例(Example)</h2><blockquote><p>数列：$\begin{matrix} 1&amp;2&amp;3&amp;4&amp;5 \end{matrix}$<br>前缀和处理后：$\begin{matrix}1&amp;3&amp;6&amp;10&amp;15\end{matrix}$</p></blockquote><h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">void presum1(int a[],int s[],int n)&#123;  for(int i = 1; i&lt;= n ; i++)//为了不特判第一个元素，一般定义i从1开始，0号元素为0  s[i] = s[i -1] + a[i];&#125;</code></pre><p>在C++标准库中也实现了前缀和函数：</p><pre><code class="line-numbers language-cpp"># include &lt;numeric&gt;std::partial_sum(a, a + n, s);</code></pre><h2 id="二维前缀和示例-Example"><a href="#二维前缀和示例-Example" class="headerlink" title="二维前缀和示例(Example)"></a>二维前缀和示例(Example)</h2><p>对于矩阵a，可以视为一个数组:</p><blockquote><p>$\begin{matrix}<br>1&amp;2&amp;4&amp;3\<br>5&amp;6&amp;2&amp;4\<br>6&amp;3&amp;5&amp;9\<br>\end{matrix}$ </p></blockquote><p> 其前缀和为：</p><blockquote><p>$\begin{matrix}<br>1&amp;3&amp;7&amp;10\<br>6&amp;14&amp;20&amp;27\<br>12&amp;23&amp;34&amp;50\<br>\end{matrix}$</p></blockquote><h2 id="代码实现-Code-1"><a href="#代码实现-Code-1" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">void presum2(int a[][],int s[][],int n, int m)&#123;  for(int i = 1; i &lt;= n; i++)    for(int j = 1; j &lt;= m; j++)      s[i][j] = s[i][j -1] +  s[i -1][j] - s[i- 1][j -1] + a[i][j];&#125;</code></pre><h2 id="分析-Analysis"><a href="#分析-Analysis" class="headerlink" title="分析(Analysis)"></a>分析(Analysis)</h2><p>经过预处理之后每次查询的时间复杂度为$O(1)$。<br>一维前缀和比较容易理解，每次用第$i$项更新前缀和数组即可。<br>而二维前缀和的处理是基于<em>容斥原理</em>的。这里并不多介绍容斥原理，仅仅以下面的示例做简单说明。</p><h2 id="示例-Example"><a href="#示例-Example" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/11/lQvNa3nysiGCgpe.jpg" alt="二维前缀和示例"></p><p>最后得到递推公式为：</p><blockquote><p>$s[i][j] = s[i-1][j] + s[i][j-1] - s[i -1][j -1] + a[i][j]$.</p></blockquote><hr><p>前缀和板子，记住就行啦~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 基础算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前缀和 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>高精度(High Accuracy)</title>
+      <link href="/2021/07/11/%E9%AB%98%E7%B2%BE%E5%BA%A6(High%20Accuracy)/"/>
+      <url>/2021/07/11/%E9%AB%98%E7%B2%BE%E5%BA%A6(High%20Accuracy)/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介-Introduction"><a href="#简介-Introduction" class="headerlink" title="简介(Introduction)"></a>简介(Introduction)</h2><blockquote><blockquote><p>高精度算法（High Accuracy Algorithm）是处理大数字的数学计算方法。在一般的科学计算中，会经常算到小数点后几百位或者更多，当然也可能是几千亿几百亿的大数字。一般这类数字我们统称为高精度数，高精度算法是用计算机对于超大数据的一种模拟加，减，乘，除，乘方，阶乘，开方等运算。</p></blockquote></blockquote><h2 id="描述-Description"><a href="#描述-Description" class="headerlink" title="描述(Description)"></a>描述(Description)</h2><p>对于某些需要用到超级大的数运算的题目，可以利用高精度算法来解决。高精度的处理是把数字以字符的形式储存在数组中，并且利用四则运算的性质来进行加减乘除运算。</p><h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><h3 id="高精度加法"><a href="#高精度加法" class="headerlink" title="高精度加法"></a>高精度加法</h3><pre><code class="line-numbers language-cpp">vector&lt;int&gt; sum(vector&lt;int&gt; &amp;A, vector&lt;int&gt; &amp;B)&#123;  vector&lt;int&gt;C;//储存答案用  if(A.size() &lt; B.size())return sum(B,A);  //保证函数中的数组“A”是较大数  int t = 0;//用于储存进位值  for(int i = 0; i &lt; A.size(); i++)  &#123;    t += A[i];    if(B.size() &gt; i)t += B[i];    C.push_back(i % 10);//模拟进位    i /= 10;  &#125;  if(t)C.push_back(1);//如果最后t补位0，表明最高位进了一位。  return C;&#125;</code></pre><h3 id="高精度减法"><a href="#高精度减法" class="headerlink" title="高精度减法"></a>高精度减法</h3><pre><code class="line-numbers language-cpp">vector&lt;int&gt; sub(vector&lt;int&gt; &amp;A, vector&lt;int&gt; &amp;B)&#123;//默认已经处理使得传入的A大于B  vector&lt;int&gt;C;  int t = 0;  for(int i = 0; i &lt;A.size(); i++)  &#123;    t = A[i] - t;    if(B.size() &gt; i)t-=B[i];    C.push_back((t + 10) % 10)//模拟借位    if(t &lt; 0)t = 1;//发生借位    else t = 0;  &#125;  while(C.size() &gt; 1 &amp;&amp; C.back() == 0)  C.pop_back();//去掉前导0;  return C;&#125;</code></pre><h3 id="高精度乘法"><a href="#高精度乘法" class="headerlink" title="高精度乘法"></a>高精度乘法</h3><pre><code class="line-numbers language-cpp">vector&lt;int&gt; mul(vector&lt;int&gt; &amp;A, int b)&#123;//常见的高精乘法是一个大数乘一个小数  vector&lt;int&gt;C;  int t = 0;  for(int i = 0; i &lt; A.size()||t;i++)  &#123;//要么i没有循环完，要么t 不为0    if(i &lt; A.size())t += a[i] * b;    C.push_back(t % 10);    t /= 10;  &#125;  while(C.size() &gt; 1 &amp;&amp; C.back() == 0)  C.pop_back();//去掉前导0  return C;&#125;</code></pre><h3 id="高精度除法"><a href="#高精度除法" class="headerlink" title="高精度除法"></a>高精度除法</h3><pre><code class="line-numbers language-cpp">vector&lt;int&gt; div(vector&lt;int&gt; &amp;A,int b ,int &amp;r)&#123;//除法除了会返回商，还会返回一个余数r  r = 0;  vector&lt;int&gt;C;  int t = 0;  for(int i = A.size()- 1; i &gt;= 0 ; i--)  &#123;//除法是从最高位开始计算的，与另三个不同    r = r * 10 + A[i];    C.psuh_back(r / b);    r %= b;  &#125;  reverse(C.begin(), C.end());//翻转一下去除前导0  while(C.size() &gt; 1 &amp;&amp; C.back() == 0)  C.pop_back();  return C;&#125;</code></pre><hr><p>都是些模板，记下就行了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 基础算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 高精度 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二分查找(Binary Search)</title>
       <link href="/2021/07/10/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE(Binary%20Search)/"/>
       <url>/2021/07/10/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE(Binary%20Search)/</url>
@@ -48,6 +123,12 @@
       
         <content type="html"><![CDATA[<h2 id="简介-Introduction"><a href="#简介-Introduction" class="headerlink" title="简介(Introduction)"></a>简介(Introduction)</h2><blockquote><p>快速排序由C. A. R. Hoare在1960年提出。它的基本思想是：通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。</p></blockquote><h2 id="描述-Description"><a href="#描述-Description" class="headerlink" title="描述(Description)"></a>描述(Description)</h2><p>快排的大致过程是对于一个无序序列，找到一个“基准数”，通过交换，使得序列分为两块，之后这两块再进行递归处理。基准数随便选，这里暂不考虑“基准数”选择的讲究。</p><h2 id="示例-Example"><a href="#示例-Example" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/09/zdV47rZ2OfvqjJ8.png" alt="快排"></p><h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">void quick_sort(int a[], int l, int r)&#123;  if (l == r)  return ;  int flag = a[(l + r) / 2],i = l - 1, j = r + 1;  while(i &lt; j)  &#123;    while(a[++i] &lt; flag);    while(a[--j] &gt; flag);    if(i &lt; j)swap(a[i],a[j]);  &#125;  quick_sort(a,l,j);  quick_sort(a,j + 1,r);&#125;</code></pre><h2 id="性能分析-Analysis"><a href="#性能分析-Analysis" class="headerlink" title="性能分析(Analysis)"></a>性能分析(Analysis)</h2><p>快速排序在理想情况下的时间复杂度为$O(nlogn)$,在极端情况下时间复杂度为$O(n^2)$。</p><hr><h2 id="应用-快速选择"><a href="#应用-快速选择" class="headerlink" title="应用:快速选择"></a>应用:快速选择</h2><blockquote><blockquote><p>给定一个长度为n的整数数列，以及一个整数k，请用快速选择算法求出数列从小到大排序后的第k个数。<br><strong>输入格式</strong><br>第一行包含两个整数 n 和 k。<br>第二行包含 n 个整数（所有整数均在1~109范围内），表示整数数列。<br><strong>输出格式</strong><br>输出一个整数，表示数列的第k小数。<br><strong>数据范围</strong><br>1≤n≤100000,<br>1≤k≤n.<br><strong>输入样例：</strong><br>5 3<br>2 4 1 5 3<br><strong>输出样例：</strong><br>3</p></blockquote></blockquote><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>如果单纯利用快排进行排序，时间复杂度就是$O(nlogn)$。但是本题可以利用快排的性质，<strong>只递归第k个数所在的那一半</strong>，把时间复杂度优化到$O(n)$。</p>]]></content>
       
+      
+      <categories>
+          
+          <category> 基础算法 </category>
+          
+      </categories>
       
       
         <tags>
