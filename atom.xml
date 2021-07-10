@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-07-10T23:28:08.798Z</updated>
+  <updated>2021-07-10T23:36:15.182Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2021/07/11/%E5%B7%AE%E5%88%86(Adjacent_difference)/"/>
     <id>http://example.com/2021/07/11/%E5%B7%AE%E5%88%86(Adjacent_difference)/</id>
     <published>2021-07-10T23:26:29.708Z</published>
-    <updated>2021-07-10T23:28:08.798Z</updated>
+    <updated>2021-07-10T23:36:15.182Z</updated>
     
     
       
@@ -96,7 +96,7 @@
     <link href="http://example.com/2021/07/10/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE(Binary%20Search)/"/>
     <id>http://example.com/2021/07/10/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE(Binary%20Search)/</id>
     <published>2021-07-10T02:07:16.742Z</published>
-    <updated>2021-07-10T02:44:48.469Z</updated>
+    <updated>2021-07-10T23:40:10.479Z</updated>
     
     
       
@@ -108,6 +108,8 @@
       
     
     
+    
+    <category term="基础算法" scheme="http://example.com/categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/"/>
     
     
     <category term="二分查找" scheme="http://example.com/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
@@ -119,7 +121,7 @@
     <link href="http://example.com/2021/07/09/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F(Merge%20sort)/"/>
     <id>http://example.com/2021/07/09/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F(Merge%20sort)/</id>
     <published>2021-07-09T02:07:26.825Z</published>
-    <updated>2021-07-10T02:44:31.878Z</updated>
+    <updated>2021-07-10T23:39:56.993Z</updated>
     
     
       
@@ -132,6 +134,8 @@
     
     
     
+    <category term="基础算法" scheme="http://example.com/categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/"/>
+    
     
     <category term="归并排序" scheme="http://example.com/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
     
@@ -142,7 +146,7 @@
     <link href="http://example.com/2021/07/08/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F(Quick%20sort)/"/>
     <id>http://example.com/2021/07/08/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F(Quick%20sort)/</id>
     <published>2021-07-08T14:26:32.927Z</published>
-    <updated>2021-07-10T23:20:38.106Z</updated>
+    <updated>2021-07-10T23:36:13.519Z</updated>
     
     
       
