@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="差分(Adjacent_difference), c++,c">
+    <meta name="keywords" content="离散化(Discretization), c++,c">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>差分(Adjacent_difference) | L&#39;s Home</title>
+    <title>离散化(Discretization) | L&#39;s Home</title>
     <link rel="icon" type="image/png" href="../../../../favicon.png">
 
     <link rel="stylesheet" type="text/css" href="../../../../libs/awesome/css/all.css">
@@ -255,12 +255,12 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">差分(Adjacent_difference)</h1>
+                    <h1 class="description center-align post-title">离散化(Discretization)</h1>
                 </div>
             </div>
         </div>
@@ -376,8 +376,8 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                     
                     <div class="article-tag">
                         
-                            <a href="../../../../tags/%E5%B7%AE%E5%88%86/">
-                                <span class="chip bg-color">差分</span>
+                            <a href="../../../../tags/%E7%A6%BB%E6%95%A3%E5%8C%96/">
+                                <span class="chip bg-color">离散化</span>
                             </a>
                         
                     </div>
@@ -401,21 +401,21 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-11
+                    2021-07-12
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-11
+                    2021-07-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    724
+                    550
                 </div>
                 
 
@@ -439,61 +439,44 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
             <div id="articleContent">
                 <h2 id="简介-Introduction"><a href="#简介-Introduction" class="headerlink" title="简介(Introduction)"></a>简介(Introduction)</h2><blockquote>
 <blockquote>
-<p>差分与前缀和相对，可以视为前缀和的逆运算。差分它可以维护多次对序列的一个区间修改一个数。</p>
+<p>离散化，把无限空间中有限的个体映射到有限的空间中去，以此提高算法的时空效率。<br>通俗的说，离散化是在不改变数据相对大小的条件下，对数据进行相应的缩小。</p>
 </blockquote>
 </blockquote>
-<h2 id="一维差分示例-Example"><a href="#一维差分示例-Example" class="headerlink" title="一维差分示例(Example)"></a>一维差分示例(Example)</h2><p>数列：</p>
-<blockquote>
-<p>$\begin{matrix} 2&amp;3&amp;5&amp;7&amp;11&amp;13&amp;17&amp;19\end{matrix}$</p>
-</blockquote>
-<p>差分处理之后：</p>
-<blockquote>
-<p>$\begin{matrix} 2&amp;1&amp;2&amp;2&amp;4&amp;2&amp;4&amp;2\end{matrix}$</p>
-</blockquote>
-<p>可以看到，差分后的数列用前缀和处理后可以得到：</p>
-<blockquote>
-<p>$\begin{matrix} 2&amp;3&amp;5&amp;7&amp;11&amp;13&amp;17&amp;19\end{matrix}$</p>
-</blockquote>
-<p>即为原数列。<br>通常情况下我们也并不关心差分后的结果，只关心差分并处理最后再前缀和后的结果。</p>
-<h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">void adjdif(int a[], int b[],int n)
+<h2 id="描述-Description"><a href="#描述-Description" class="headerlink" title="描述(Description)"></a>描述(Description)</h2><p>离散化用于处理一些个数不多，但是数据本身很大但是仍需要作为数组等无法过大的下标时，我们可以处理一下这些大的下标，并且依然保持其原序。</p>
+<h2 id="示例-Example"><a href="#示例-Example" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/12/hxvcRIXkzZAB96f.jpg" alt="位运算示例"></p>
+<p>然而这个示例好像并没有什么用诶。</p>
+<h2 id="细节-Detail"><a href="#细节-Detail" class="headerlink" title="细节(Detail)"></a>细节(Detail)</h2><ol>
+<li>注意去重复元素。</li>
+<li>如何快速保序映射？</li>
+</ol>
+<h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><p>首先来完成去重操作:</p>
+<pre><code class="line-numbers language-cpp"># include &lt;algorithm&gt;
+sort(a.begin(),a.end());//首先排序:
+//然后去重
+a.erase(unique(a.begin(),a.end()),a.end());
+</code></pre>
+<p>第一步完成了，那么第二步快速映射也很轻松有二分查找：</p>
+<pre><code class="line-numbers language-cpp">int find(int x)
 &#123;
-  for(int i = 1; i &lt;= n ;i++)
-  b[i] = a[i] - a[i -1];
+  int l = 0 , r = a.size() -1;
+  while(l &lt; r)
+  &#123;
+    int mid = l + r &gt;&gt;1;
+    if(a[mid] &gt;= x)r = mid;
+    else l = mid + 1;
+  &#125;
+  return l +1;//从1~n的映射。
 &#125;
 </code></pre>
-<p>和前缀和对应的，c++标准库中也实现了差分函数：</p>
-<pre><code class="line-numbers language-cpp"># include &lt;numeric&gt;
-std::adjacent_difference(a, a + n, b);
-</code></pre>
-<p>利用差分后再做前缀和可以得到原数列的性质，可以通过改变差分后的数组从而改变原数组。</p>
-<pre><code class="line-numbers language-cpp">void Insert(int b[], int c)
-&#123;
-  b[1] += c;
-&#125;
-</code></pre>
-<p>该函数使差分数组的第一个元素加上了常数$c$,可以想到，在做前缀和处理，回到原数组的时候，由递推公式为：$a[i] = a[i -1] + b[i];$，可以得到原数组所有的元素都将加上$c$。<br>再通过这个性质，做一点变形，有：</p>
-<pre><code class="line-numbers language-cpp">void Insert(int b[],int l ,int r, int c)
-&#123;//l在r的左边(或重合)
-  b[l] += c;
-  b[r + 1] -=c;
-&#125;
-</code></pre>
-<p>不难理解，该函数可以将原数组$[l,r]$部分的每个元素都加上常数$c$。    </p>
-<p>基于此，我们甚至可以使用全初始化为0的数组来初始化原数组。只要把区间$[l,r]$缩小到每一个元素(l和r重合时)，根据<strong>函数可以将原数组$[l,r]$部分每个元素都加上c</strong>可以将一个元素赋予要赋的值。</p>
-<p>所以所有的操作可以直接从差分数组本身开始，而不必用原数组做差分后操作，最后再前缀和。</p>
-<h2 id="二维差分示例-Example"><a href="#二维差分示例-Example" class="headerlink" title="二维差分示例(Example)"></a>二维差分示例(Example)</h2><p>通过一维前缀和的启发，我们知道第一个差分操作是不必要的。初始化与修改都可以在差分数组中得到。二维也同理。<br>只要有类似的$Insert$函数即可。这里先给出代码，后给出解释。</p>
-<h2 id="实现代码-Code"><a href="#实现代码-Code" class="headerlink" title="实现代码(Code)"></a>实现代码(Code)</h2><pre><code class="line-numbers language-cpp">void Insert(int x1, int x2, int y1, int y2, int c)
-&#123;//点(x1,y1) 在 (x2,y2)的左上方(或重合)
-  b[x1][y1] +=c;
-  b[x2 + 1][y2] -= c;
-  b[x2][y2 + 1] -= c;
-  b[x2][y2] +=c;
-&#125;
-</code></pre>
-<h2 id="示例-Example"><a href="#示例-Example" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/11/YQJo1jGzCyStwE2.jpg" alt="二维差分示例"></p>
-<p>由图不难得到代码中的操作公式~</p>
 <hr>
-<p>以上是一维、二维差分的板子，记下就行啦~<br>同样的，高维的和树相关的暂时还没学。</p>
+<h2 id="应用：区间和"><a href="#应用：区间和" class="headerlink" title="应用：区间和"></a>应用：区间和</h2><blockquote>
+<blockquote>
+<p>假定有一个无限长的数轴，数轴上每个坐标上的数都是0。<br>现在，我们首先进行 n 次操作，每次操作将某一位置x上的数加c。<br>接下来，进行 m 次询问，每个询问包含两个整数l和r，你需要求出在区间[l, r]之间的所有数的和。<br><strong>输入格式</strong><br>第一行包含两个整数n和m。<br>接下来 n 行，每行包含两个整数x和c。<br>再接下里 m 行，每行包含两个整数l和r。<br><strong>输出格式</strong><br>共m行，每行输出一个询问中所求的区间内数字和。<br><strong>数据范围</strong><br>$-10^9≤x≤10^9$,<br>$1≤n,m≤10^5$,<br>$−10^9≤l≤r≤10^9$,<br>$−10000≤c≤10000$<br>输入样例：<br>3 3<br>1 2<br>3 6<br>7 5<br>1 3<br>4 6<br>7 8<br>输出样例：<br>8<br>0<br>5</p>
+</blockquote>
+</blockquote>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>由于坐标数据范围很大，但是数据量较小，考虑离散化处理所有坐标。<br>最后要求区间和，可以使用前缀和来求。</p>
+<hr>
+<p>离散化虽然简单，却是比较实用的一种方法。</p>
 
                 
             </div>
@@ -558,8 +541,8 @@ std::adjacent_difference(a, a + n, b);
                     
                         <div class="article-tag">
                             
-                                <a href="../../../../tags/%E5%B7%AE%E5%88%86/">
-                                    <span class="chip bg-color">差分</span>
+                                <a href="../../../../tags/%E7%A6%BB%E6%95%A3%E5%8C%96/">
+                                    <span class="chip bg-color">离散化</span>
                                 </a>
                             
                         </div>
@@ -871,17 +854,18 @@ std::adjacent_difference(a, a + n, b);
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="../../12/%E5%8F%8C%E6%8C%87%E9%92%88%E7%AE%97%E6%B3%95/">
+                <a href="">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../medias/featureimages/5.jpg" class="responsive-img" alt="双指针算法">
+                        <img src="../../../../medias/featureimages/17.jpg" class="responsive-img" alt="离散化(Discretization)">
                         
-                        <span class="card-title">双指针算法</span>
+                        <span class="card-title">离散化(Discretization)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -891,9 +875,9 @@ std::adjacent_difference(a, a + n, b);
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -906,11 +890,12 @@ std::adjacent_difference(a, a + n, b);
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                        <span class="chip bg-color">双指针</span>
+                    <a href="../../../../tags/%E7%A6%BB%E6%95%A3%E5%8C%96/">
+                        <span class="chip bg-color">离散化</span>
                     </a>
                     
                 </div>
@@ -924,13 +909,13 @@ std::adjacent_difference(a, a + n, b);
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../%E5%89%8D%E7%BC%80%E5%92%8C/">
+                <a href="../%E4%BD%8D%E8%BF%90%E7%AE%97(Bitwise%20operation)/">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../medias/featureimages/9.jpg" class="responsive-img" alt="前缀和">
+                        <img src="../../../../medias/featureimages/13.jpg" class="responsive-img" alt="位运算(Bitwise operation)">
                         
-                        <span class="card-title">前缀和</span>
+                        <span class="card-title">位运算(Bitwise operation)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -941,7 +926,7 @@ std::adjacent_difference(a, a + n, b);
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-12
                             </span>
                         <span class="publish-author">
                             
@@ -958,8 +943,8 @@ std::adjacent_difference(a, a + n, b);
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../tags/%E5%89%8D%E7%BC%80%E5%92%8C/">
-                        <span class="chip bg-color">前缀和</span>
+                    <a href="../../../../tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
+                        <span class="chip bg-color">位运算</span>
                     </a>
                     
                 </div>

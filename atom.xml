@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-07-10T23:36:15.182Z</updated>
+  <updated>2021-07-11T23:12:43.966Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,81 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>离散化(Discretization)</title>
+    <link href="http://example.com/2021/07/12/%E7%A6%BB%E6%95%A3%E5%8C%96(Discretization)/"/>
+    <id>http://example.com/2021/07/12/%E7%A6%BB%E6%95%A3%E5%8C%96(Discretization)/</id>
+    <published>2021-07-11T23:01:00.521Z</published>
+    <updated>2021-07-11T23:12:43.966Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简介-Introduction&quot;&gt;&lt;a href=&quot;#简介-Introduction&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="基础算法" scheme="http://example.com/categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="离散化" scheme="http://example.com/tags/%E7%A6%BB%E6%95%A3%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>位运算(Bitwise operation)</title>
+    <link href="http://example.com/2021/07/12/%E4%BD%8D%E8%BF%90%E7%AE%97(Bitwise%20operation)/"/>
+    <id>http://example.com/2021/07/12/%E4%BD%8D%E8%BF%90%E7%AE%97(Bitwise%20operation)/</id>
+    <published>2021-07-11T23:00:55.177Z</published>
+    <updated>2021-07-11T23:10:29.974Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简介-Introduction&quot;&gt;&lt;a href=&quot;#简介-Introduction&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="基础算法" scheme="http://example.com/categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="位运算" scheme="http://example.com/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>双指针算法</title>
+    <link href="http://example.com/2021/07/12/%E5%8F%8C%E6%8C%87%E9%92%88%E7%AE%97%E6%B3%95/"/>
+    <id>http://example.com/2021/07/12/%E5%8F%8C%E6%8C%87%E9%92%88%E7%AE%97%E6%B3%95/</id>
+    <published>2021-07-11T23:00:42.555Z</published>
+    <updated>2021-07-11T23:07:11.271Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简介-Introduction&quot;&gt;&lt;a href=&quot;#简介-Introduction&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="基础算法" scheme="http://example.com/categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="双指针" scheme="http://example.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+  </entry>
   
   <entry>
     <title>差分(Adjacent_difference)</title>
