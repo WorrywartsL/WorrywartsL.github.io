@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="离散化(Discretization), c++,c">
+    <meta name="keywords" content="链表(Linked list), c++,c">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>离散化(Discretization) | L&#39;s Home</title>
+    <title>链表(Linked list) | L&#39;s Home</title>
     <link rel="icon" type="image/png" href="../../../../favicon.png">
 
     <link rel="stylesheet" type="text/css" href="../../../../libs/awesome/css/all.css">
@@ -255,12 +255,12 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">离散化(Discretization)</h1>
+                    <h1 class="description center-align post-title">链表(Linked list)</h1>
                 </div>
             </div>
         </div>
@@ -376,8 +376,8 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                     
                     <div class="article-tag">
                         
-                            <a href="../../../../tags/%E7%A6%BB%E6%95%A3%E5%8C%96/">
-                                <span class="chip bg-color">离散化</span>
+                            <a href="../../../../tags/%E9%93%BE%E8%A1%A8/">
+                                <span class="chip bg-color">链表</span>
                             </a>
                         
                     </div>
@@ -388,8 +388,8 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../../../../categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" class="post-category">
-                                基础算法
+                            <a href="../../../../categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                数据结构
                             </a>
                         
                     </div>
@@ -401,21 +401,21 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-12
+                    2021-07-13
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-12
+                    2021-07-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    550
+                    647
                 </div>
                 
 
@@ -439,44 +439,99 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
             <div id="articleContent">
                 <h2 id="简介-Introduction"><a href="#简介-Introduction" class="headerlink" title="简介(Introduction)"></a>简介(Introduction)</h2><blockquote>
 <blockquote>
-<p>离散化，把无限空间中有限的个体映射到有限的空间中去，以此提高算法的时空效率。<br>通俗的说，离散化是在不改变数据相对大小的条件下，对数据进行相应的缩小。</p>
+<p>链表是一种物理存储单元上非连续、非顺序的<strong>存储结构</strong>，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。链表由一系列结点（链表中每一个元素称为结点）组成，结点可以在运行时动态生成。每个结点包括两个部分：一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域。</p>
 </blockquote>
 </blockquote>
-<h2 id="描述-Description"><a href="#描述-Description" class="headerlink" title="描述(Description)"></a>描述(Description)</h2><p>离散化用于处理一些个数不多，但是数据本身很大但是仍需要作为数组等无法过大的下标时，我们可以处理一下这些大的下标，并且依然保持其原序。</p>
-<h2 id="示例-Example"><a href="#示例-Example" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/12/hxvcRIXkzZAB96f.jpg" alt="位运算示例"></p>
-<p>然而这个示例好像并没有什么用诶。</p>
-<h2 id="细节-Detail"><a href="#细节-Detail" class="headerlink" title="细节(Detail)"></a>细节(Detail)</h2><ol>
-<li>注意去重复元素。</li>
-<li>如何快速保序映射？</li>
-</ol>
-<h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><p>首先来完成去重操作:</p>
-<pre><code class="line-numbers language-cpp"># include &lt;algorithm&gt;
-sort(a.begin(),a.end());//首先排序:
-//然后去重
-a.erase(unique(a.begin(),a.end()),a.end());
-</code></pre>
-<p>第一步完成了，那么第二步快速映射也很轻松有二分查找：</p>
-<pre><code class="line-numbers language-cpp">int find(int x)
+<h2 id="描述-Description"><a href="#描述-Description" class="headerlink" title="描述(Description)"></a>描述(Description)</h2><p>由于结构体加指针类型的链表在开辟内存空间时运行速度很慢，这里只介绍利用<strong>数组模拟的链表</strong>(静态链表)。</p>
+<h2 id="示例-Example"><a href="#示例-Example" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/13/hP1qeHp8d6Jf5Kn.jpg" alt="链表示例"></p>
+<h1 id="单链表-Singly-Linked-List"><a href="#单链表-Singly-Linked-List" class="headerlink" title="单链表(Singly Linked List)"></a>单链表(Singly Linked List)</h1><p>单链表常见的操作：  </p>
+<ol>
+<li>初始化<h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">int head, e[N],ne[N], idx;
+//初始化链表：
+void Init()
 &#123;
-  int l = 0 , r = a.size() -1;
-  while(l &lt; r)
-  &#123;
-    int mid = l + r &gt;&gt;1;
-    if(a[mid] &gt;= x)r = mid;
-    else l = mid + 1;
-  &#125;
-  return l +1;//从1~n的映射。
+ head = -1;
+ idx = 0;
 &#125;
 </code></pre>
+</li>
+<li>向表头插入一个数：</li>
+</ol>
+<h2 id="示例-Example-1"><a href="#示例-Example-1" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/13/1HUxfiW7tVM2NIc.jpg" alt="链表插入"></p>
+<h2 id="代码实现-Code-1"><a href="#代码实现-Code-1" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">void add_to_head(int x)
+&#123;
+    e[idx] = x;
+    ne[idx] = head;
+    head = idx++;
+&#125;
+</code></pre>
+<ol start="3">
+<li>在第k个数后面插入一个数</li>
+</ol>
+<h2 id="代码实现-Code-2"><a href="#代码实现-Code-2" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">void add(int k, int x)
+&#123;
+    e[idx] = x;
+    ne[idx] = ne[k];
+    ne[k] = idx++;
+&#125;
+</code></pre>
+<ol start="4">
+<li>删除第k个插入的数的后面一个数：</li>
+</ol>
+<h2 id="示例-Example-2"><a href="#示例-Example-2" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/13/tu7HDeTvQ5iqnaW.jpg" alt="链表删除"></p>
+<h2 id="代码实现-Code-3"><a href="#代码实现-Code-3" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">void del(int k)//注意传入时要传k - 1;
+&#123;
+    ne[k] = ne[ne[k]];
+&#125;
+</code></pre>
+<ol start="5">
+<li>删除头结点</li>
+</ol>
+<h2 id="代码实现-Code-4"><a href="#代码实现-Code-4" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">head = ne[head];
+</code></pre>
 <hr>
-<h2 id="应用：区间和"><a href="#应用：区间和" class="headerlink" title="应用：区间和"></a>应用：区间和</h2><blockquote>
-<blockquote>
-<p>假定有一个无限长的数轴，数轴上每个坐标上的数都是0。<br>现在，我们首先进行 n 次操作，每次操作将某一位置x上的数加c。<br>接下来，进行 m 次询问，每个询问包含两个整数l和r，你需要求出在区间[l, r]之间的所有数的和。<br><strong>输入格式</strong><br>第一行包含两个整数n和m。<br>接下来 n 行，每行包含两个整数x和c。<br>再接下里 m 行，每行包含两个整数l和r。<br><strong>输出格式</strong><br>共m行，每行输出一个询问中所求的区间内数字和。<br><strong>数据范围</strong><br>$-10^9≤x≤10^9$,<br>$1≤n,m≤10^5$,<br>$−10^9≤l≤r≤10^9$,<br>$−10000≤c≤10000$<br>输入样例：<br>3 3<br>1 2<br>3 6<br>7 5<br>1 3<br>4 6<br>7 8<br>输出样例：<br>8<br>0<br>5</p>
-</blockquote>
-</blockquote>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>由于坐标数据范围很大，但是数据量较小，考虑离散化处理所有坐标。<br>最后要求区间和，可以使用前缀和来求。</p>
+<h1 id="双链表-Dual-Linked-List"><a href="#双链表-Dual-Linked-List" class="headerlink" title="双链表(Dual Linked List)"></a>双链表(Dual Linked List)</h1><p>双链表没有单链表常用，因为各种操作稍微复杂。<br>直接给出代码和一点解释：</p>
+<h2 id="代码实现-Code-5"><a href="#代码实现-Code-5" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><ol>
+<li>初始化</li>
+</ol>
+<pre><code class="line-numbers language-cpp">  int l[N],r[N],e[N];//左右指针和值
+int cnt=0;
+void Init()
+&#123;
+    //0表示左端点，1表示右端点
+    r[0]=1,l[1]=0;//一开始左右互指
+    cnt=1; //cnt从1开始
+&#125;
+</code></pre>
+<ol start="2">
+<li><p>在第k个插入的点右边插入值为x的点(右插)(传入k + 1)</p>
+<pre><code class="line-numbers language-cpp">void add_r(int k,int x)
+&#123;
+ e[++cnt]=x;//计数器加一并且存值
+ r[cnt]=r[k];
+ l[cnt]=k；
+ l[r[k]]=cnt;
+ r[k]=cnt; //注意一定要先改变r[k]的左指针，再改变r[k]
+ //一旦先改变r[k]，那么r[k]的左指针就失效了。
+</code></pre>
+</li>
+<li><p>在第k个插入的点左边插入值为x的点(左插)(传入k + 1)<br>直接调用</p>
+<pre><code class="line-numbers language-cpp">add_r(l[k],x);
+//第k个点左边插入等价于在第k个点的左边一个点的右边插入。
+//当然，模仿又插再写一个也行。
+</code></pre>
+</li>
+<li><p>删除第k个插入的点(传入 k + 1)</p>
+<pre><code class="line-numbers language-cpp">void del(int k)
+&#123;
+ r[l[k]]=r[k];
+ l[r[k]]=l[k];
+&#125;
+</code></pre>
+</li>
+</ol>
 <hr>
-<p>离散化虽然简单，却是比较实用的一种方法。</p>
+<p>这些都是链表的基本操作，尤其是单链表要熟练掌握。</p>
 
                 
             </div>
@@ -541,8 +596,8 @@ a.erase(unique(a.begin(),a.end()),a.end());
                     
                         <div class="article-tag">
                             
-                                <a href="../../../../tags/%E7%A6%BB%E6%95%A3%E5%8C%96/">
-                                    <span class="chip bg-color">离散化</span>
+                                <a href="../../../../tags/%E9%93%BE%E8%A1%A8/">
+                                    <span class="chip bg-color">链表</span>
                                 </a>
                             
                         </div>
@@ -854,17 +909,18 @@ a.erase(unique(a.begin(),a.end()),a.end());
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="../../13/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6(Merge%20Interval)/">
+                <a href="">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../medias/featureimages/20.jpg" class="responsive-img" alt="区间合并(Merge Interval)">
+                        <img src="../../../../medias/featureimages/18.jpg" class="responsive-img" alt="链表(Linked list)">
                         
-                        <span class="card-title">区间合并(Merge Interval)</span>
+                        <span class="card-title">链表(Linked list)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -874,26 +930,27 @@ a.erase(unique(a.begin(),a.end()),a.end());
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../../../../categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" class="post-category">
-                                    基础算法
+                            <a href="../../../../categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../tags/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6/">
-                        <span class="chip bg-color">区间合并</span>
+                    <a href="../../../../tags/%E9%93%BE%E8%A1%A8/">
+                        <span class="chip bg-color">链表</span>
                     </a>
                     
                 </div>
@@ -907,13 +964,13 @@ a.erase(unique(a.begin(),a.end()),a.end());
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../%E4%BD%8D%E8%BF%90%E7%AE%97(Bitwise%20operation)/">
+                <a href="../%E6%A0%88(Stack)/">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../medias/featureimages/13.jpg" class="responsive-img" alt="位运算(Bitwise operation)">
+                        <img src="../../../../medias/featureimages/23.jpg" class="responsive-img" alt="栈(Stack)">
                         
-                        <span class="card-title">位运算(Bitwise operation)</span>
+                        <span class="card-title">栈(Stack)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -924,14 +981,14 @@ a.erase(unique(a.begin(),a.end()),a.end());
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../../../../categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" class="post-category">
-                                    基础算法
+                            <a href="../../../../categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
                                 </a>
                             
                             
@@ -941,8 +998,8 @@ a.erase(unique(a.begin(),a.end()),a.end());
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
-                        <span class="chip bg-color">位运算</span>
+                    <a href="../../../../tags/%E6%A0%88/">
+                        <span class="chip bg-color">栈</span>
                     </a>
                     
                 </div>

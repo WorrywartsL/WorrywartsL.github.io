@@ -4,6 +4,81 @@
   
     
     <entry>
+      <title>链表(Linked list)</title>
+      <link href="/2021/07/13/%E9%93%BE%E8%A1%A8(Linked%20list)/"/>
+      <url>/2021/07/13/%E9%93%BE%E8%A1%A8(Linked%20list)/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介-Introduction"><a href="#简介-Introduction" class="headerlink" title="简介(Introduction)"></a>简介(Introduction)</h2><blockquote><blockquote><p>链表是一种物理存储单元上非连续、非顺序的<strong>存储结构</strong>，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。链表由一系列结点（链表中每一个元素称为结点）组成，结点可以在运行时动态生成。每个结点包括两个部分：一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域。</p></blockquote></blockquote><h2 id="描述-Description"><a href="#描述-Description" class="headerlink" title="描述(Description)"></a>描述(Description)</h2><p>由于结构体加指针类型的链表在开辟内存空间时运行速度很慢，这里只介绍利用<strong>数组模拟的链表</strong>(静态链表)。</p><h2 id="示例-Example"><a href="#示例-Example" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/13/hP1qeHp8d6Jf5Kn.jpg" alt="链表示例"></p><h1 id="单链表-Singly-Linked-List"><a href="#单链表-Singly-Linked-List" class="headerlink" title="单链表(Singly Linked List)"></a>单链表(Singly Linked List)</h1><p>单链表常见的操作：  </p><ol><li>初始化<h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">int head, e[N],ne[N], idx;//初始化链表：void Init()&#123; head = -1; idx = 0;&#125;</code></pre></li><li>向表头插入一个数：</li></ol><h2 id="示例-Example-1"><a href="#示例-Example-1" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/13/1HUxfiW7tVM2NIc.jpg" alt="链表插入"></p><h2 id="代码实现-Code-1"><a href="#代码实现-Code-1" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">void add_to_head(int x)&#123;    e[idx] = x;    ne[idx] = head;    head = idx++;&#125;</code></pre><ol start="3"><li>在第k个数后面插入一个数</li></ol><h2 id="代码实现-Code-2"><a href="#代码实现-Code-2" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">void add(int k, int x)&#123;    e[idx] = x;    ne[idx] = ne[k];    ne[k] = idx++;&#125;</code></pre><ol start="4"><li>删除第k个插入的数的后面一个数：</li></ol><h2 id="示例-Example-2"><a href="#示例-Example-2" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/13/tu7HDeTvQ5iqnaW.jpg" alt="链表删除"></p><h2 id="代码实现-Code-3"><a href="#代码实现-Code-3" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">void del(int k)//注意传入时要传k - 1;&#123;    ne[k] = ne[ne[k]];&#125;</code></pre><ol start="5"><li>删除头结点</li></ol><h2 id="代码实现-Code-4"><a href="#代码实现-Code-4" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">head = ne[head];</code></pre><hr><h1 id="双链表-Dual-Linked-List"><a href="#双链表-Dual-Linked-List" class="headerlink" title="双链表(Dual Linked List)"></a>双链表(Dual Linked List)</h1><p>双链表没有单链表常用，因为各种操作稍微复杂。<br>直接给出代码和一点解释：</p><h2 id="代码实现-Code-5"><a href="#代码实现-Code-5" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><ol><li>初始化</li></ol><pre><code class="line-numbers language-cpp">  int l[N],r[N],e[N];//左右指针和值int cnt=0;void Init()&#123;    //0表示左端点，1表示右端点    r[0]=1,l[1]=0;//一开始左右互指    cnt=1; //cnt从1开始&#125;</code></pre><ol start="2"><li><p>在第k个插入的点右边插入值为x的点(右插)(传入k + 1)</p><pre><code class="line-numbers language-cpp">void add_r(int k,int x)&#123; e[++cnt]=x;//计数器加一并且存值 r[cnt]=r[k]; l[cnt]=k； l[r[k]]=cnt; r[k]=cnt; //注意一定要先改变r[k]的左指针，再改变r[k] //一旦先改变r[k]，那么r[k]的左指针就失效了。</code></pre></li><li><p>在第k个插入的点左边插入值为x的点(左插)(传入k + 1)<br>直接调用</p><pre><code class="line-numbers language-cpp">add_r(l[k],x);//第k个点左边插入等价于在第k个点的左边一个点的右边插入。//当然，模仿又插再写一个也行。</code></pre></li><li><p>删除第k个插入的点(传入 k + 1)</p><pre><code class="line-numbers language-cpp">void del(int k)&#123; r[l[k]]=r[k]; l[r[k]]=l[k];&#125;</code></pre></li></ol><hr><p>这些都是链表的基本操作，尤其是单链表要熟练掌握。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 链表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>栈(Stack)</title>
+      <link href="/2021/07/13/%E6%A0%88(Stack)/"/>
+      <url>/2021/07/13/%E6%A0%88(Stack)/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介-Introduction"><a href="#简介-Introduction" class="headerlink" title="简介(Introduction)"></a>简介(Introduction)</h2><blockquote><blockquote><p>栈（stack）又名堆栈，它是一种运算受限的线性表。限定仅在表尾进行插入和删除操作的线性表。这一端被称为栈顶，相对地，把另一端称为栈底。向一个栈插入新元素又称作进栈、入栈或压栈，它是把新元素放到栈顶元素的上面，使之成为新的栈顶元素；从一个栈删除元素又称作出栈或退栈，它是把栈顶元素删除掉，使其相邻的元素成为新的栈顶元素。</p></blockquote></blockquote><h2 id="描述-Description"><a href="#描述-Description" class="headerlink" title="描述(Description)"></a>描述(Description)</h2><p>栈是一种<strong>先进后出</strong>结构，可以想象成一个桶里放盘子，最先放进去的盘子一定最后拿出来，而后放入的盘子先拿出来。</p><p>栈的实现比较好理解，就不做示例了。直接上基本操作的代码：</p><h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><ol><li><p>入栈</p><pre><code class="line-numbers language-cpp">void push(int x)&#123; stk[++tt] = x;//tt一开始为0&#125;</code></pre></li><li><p>出栈</p><pre><code class="line-numbers language-cpp">voide pop()&#123; tt--;&#125;</code></pre></li><li><p>判断是否栈空</p><pre><code class="line-numbers language-cpp">bool empty()&#123; if(tt == 0) return true; else return false;&#125;</code></pre></li><li><p>查询栈顶元素</p><pre><code class="line-numbers language-cpp">int query()&#123; return stk[tt];&#125;</code></pre></li></ol><hr><h2 id="应用：单调栈"><a href="#应用：单调栈" class="headerlink" title="应用：单调栈"></a>应用：单调栈</h2><blockquote><blockquote><p>给定一个长度为N的整数数列，输出每个数左边第一个比它小的数，如果不存在则输出-1。<br><strong>输入格式</strong><br>第一行包含整数N，表示数列长度。<br>第二行包含N个整数，表示整数数列。<br><strong>输出格式</strong><br>共一行，包含N个整数，其中第i个数表示第i个数的左边第一个比它小的数，如果不存在则输出-1。<br><strong>数据范围</strong><br>$1≤N≤10^5$<br>$1≤$数列中元素$≤10^9$<br><strong>输入样例：</strong><br>5<br>3 4 2 7 5<br><strong>输出样例：</strong><br>-1 3 -1 2 2</p></blockquote></blockquote><p>首先可以想到暴力做法：i指针遍历整个数组，j指针每次遍历i左边的所有数，如果存在则输出第一个数，不存在则输出-1。</p><pre><code class="line-numbers language-cpp">for(int i = 0; i &lt; n ; i++)    &#123;        bool flag = false;        for(int j = i - 1; j&gt;= 0 ;j--)        &#123;            if(a[j] &lt; a[i])            &#123;                cout&lt;&lt; a[j]&lt;&lt;&quot; &quot;;                flag = true;                break;            &#125;        &#125;        if(!flag)cout&lt;&lt;-1&lt;&lt;&quot; &quot;;    &#125;</code></pre><p>但是很不幸，这样会超时。那么考虑性质：<br>设栈中元素为$a_i$,如果有：$a_3 ≥ a_5$，那么$a_3$的存在一定是不必要的，因为对于$a_5$后面的元素$a_x$，如果$a_3 &lt; a_x$,那么也一定有$a_5 &lt; a_x$,并且$a_5$距$a_x$更近。<br>那么对于一般的：如果栈中存在：$a_x ≥ a_y,x &lt; y$,那么可以删去$a_x$，所以剩下的序列一定是单调的。</p><p>因此有下面的解：</p><pre><code class="line-numbers language-cpp">for(int i = 0 ; i &lt; n ; i++)    &#123;        int x;         cin&gt;&gt;x;        while(tt &amp;&amp; stk[tt] &gt;= x)tt--;//如果栈不空，且栈顶大于当前元素，那么栈顶再也不会用得到了，删去。        if(tt)cout&lt;&lt;stk[tt]&lt;&lt;&quot; &quot;;//如果栈不空，说明有合理解，输出        else cout &lt;&lt;&quot;-1&quot;&lt;&lt;&quot; &quot;;//栈空无解                stk[++tt] = x;//放入x    &#125;</code></pre><hr><p>都是栈基本的操作，做了解。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 栈 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>区间合并(Merge Interval)</title>
+      <link href="/2021/07/13/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6(Merge%20Interval)/"/>
+      <url>/2021/07/13/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6(Merge%20Interval)/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介-amp-描述-Introduction-amp-Description"><a href="#简介-amp-描述-Introduction-amp-Description" class="headerlink" title="简介&amp;描述(Introduction&amp;Description)"></a>简介&amp;描述(Introduction&amp;Description)</h2><blockquote><blockquote><p>区间合并也是一种比较”狭窄”的算法，顾名思义，是用于把给定的、可以合并的区间合并。</p></blockquote></blockquote><h2 id="示例-Example"><a href="#示例-Example" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p>图示中有5个区间：$(1,2),(2,4),(5,6),(7,8),(7,9)$<br><img src="https://i.loli.net/2021/07/13/LOF4SdtuPyDJ7rT.jpg" alt="区间合并1"><br>合并之后成为3个区间：$(1,4),(5,6),(7,9)$</p><p><img src="https://i.loli.net/2021/07/13/DFgHNGwcetUmojq.jpg" alt="区间合并2"></p><h2 id="分析-Analysis"><a href="#分析-Analysis" class="headerlink" title="分析(Analysis)"></a>分析(Analysis)</h2><ol><li>不能碰见一个就遍历一次，效率太低，我们先将所有区间按照左端点从小到大进行排序。</li><li>排完序后，当前区间和下一个区间的关系有三种：<br> (1):下一个区间左右端点在当前区间内。<br> (2):下一个区间左端点在当前区间内，右端点在当前区间外。<br> (3):下一个区间左端点在当前区间外。<br> 对于(1),当前区间不用更新。<br> 对于(2),当前区间的右端点更新。<br> 对于(3),当前区间维护完毕，当前区间更新为下一个区间。<h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">void merge(vector&lt;pair&lt;int,int&gt;&gt; &amp;itvs)&#123;vetor&lt;pair&lt;int,int&gt;&gt; res;//用来临时存合并后的区间sort(itvs.begin(),itvs.end());//排序int st = -2e9, ed = -2e9;//无穷小初始化for(auto itv : itvs)&#123; if(ed &lt; itv.first)//情况(3) &#123;   if(st != -2e9)res.push_back(&#123;st,ed&#125;);   st = itv.first,ed = itv.second; &#125; else ed = max(ed, itv.second);//情况(1)、(2)&#125;if(st!= -2e9)res.push_back(&#123;st,ed&#125;);//最后一组放入itvs = res;//还给itvs&#125;</code></pre></li></ol><hr><p>区间合并比较小众，记住就行了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 基础算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 区间合并 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>离散化(Discretization)</title>
       <link href="/2021/07/12/%E7%A6%BB%E6%95%A3%E5%8C%96(Discretization)/"/>
       <url>/2021/07/12/%E7%A6%BB%E6%95%A3%E5%8C%96(Discretization)/</url>

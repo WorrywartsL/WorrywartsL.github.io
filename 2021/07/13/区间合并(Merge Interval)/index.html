@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="离散化(Discretization), c++,c">
+    <meta name="keywords" content="区间合并(Merge Interval), c++,c">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>离散化(Discretization) | L&#39;s Home</title>
+    <title>区间合并(Merge Interval) | L&#39;s Home</title>
     <link rel="icon" type="image/png" href="../../../../favicon.png">
 
     <link rel="stylesheet" type="text/css" href="../../../../libs/awesome/css/all.css">
@@ -255,12 +255,12 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">离散化(Discretization)</h1>
+                    <h1 class="description center-align post-title">区间合并(Merge Interval)</h1>
                 </div>
             </div>
         </div>
@@ -376,8 +376,8 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                     
                     <div class="article-tag">
                         
-                            <a href="../../../../tags/%E7%A6%BB%E6%95%A3%E5%8C%96/">
-                                <span class="chip bg-color">离散化</span>
+                            <a href="../../../../tags/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6/">
+                                <span class="chip bg-color">区间合并</span>
                             </a>
                         
                     </div>
@@ -401,21 +401,21 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-12
+                    2021-07-13
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-12
+                    2021-07-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    550
+                    372
                 </div>
                 
 
@@ -437,46 +437,37 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="简介-Introduction"><a href="#简介-Introduction" class="headerlink" title="简介(Introduction)"></a>简介(Introduction)</h2><blockquote>
+                <h2 id="简介-amp-描述-Introduction-amp-Description"><a href="#简介-amp-描述-Introduction-amp-Description" class="headerlink" title="简介&amp;描述(Introduction&amp;Description)"></a>简介&amp;描述(Introduction&amp;Description)</h2><blockquote>
 <blockquote>
-<p>离散化，把无限空间中有限的个体映射到有限的空间中去，以此提高算法的时空效率。<br>通俗的说，离散化是在不改变数据相对大小的条件下，对数据进行相应的缩小。</p>
+<p>区间合并也是一种比较”狭窄”的算法，顾名思义，是用于把给定的、可以合并的区间合并。</p>
 </blockquote>
 </blockquote>
-<h2 id="描述-Description"><a href="#描述-Description" class="headerlink" title="描述(Description)"></a>描述(Description)</h2><p>离散化用于处理一些个数不多，但是数据本身很大但是仍需要作为数组等无法过大的下标时，我们可以处理一下这些大的下标，并且依然保持其原序。</p>
-<h2 id="示例-Example"><a href="#示例-Example" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/12/hxvcRIXkzZAB96f.jpg" alt="位运算示例"></p>
-<p>然而这个示例好像并没有什么用诶。</p>
-<h2 id="细节-Detail"><a href="#细节-Detail" class="headerlink" title="细节(Detail)"></a>细节(Detail)</h2><ol>
-<li>注意去重复元素。</li>
-<li>如何快速保序映射？</li>
-</ol>
-<h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><p>首先来完成去重操作:</p>
-<pre><code class="line-numbers language-cpp"># include &lt;algorithm&gt;
-sort(a.begin(),a.end());//首先排序:
-//然后去重
-a.erase(unique(a.begin(),a.end()),a.end());
-</code></pre>
-<p>第一步完成了，那么第二步快速映射也很轻松有二分查找：</p>
-<pre><code class="line-numbers language-cpp">int find(int x)
+<h2 id="示例-Example"><a href="#示例-Example" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p>图示中有5个区间：$(1,2),(2,4),(5,6),(7,8),(7,9)$<br><img src="https://i.loli.net/2021/07/13/LOF4SdtuPyDJ7rT.jpg" alt="区间合并1"><br>合并之后成为3个区间：$(1,4),(5,6),(7,9)$</p>
+<p><img src="https://i.loli.net/2021/07/13/DFgHNGwcetUmojq.jpg" alt="区间合并2"></p>
+<h2 id="分析-Analysis"><a href="#分析-Analysis" class="headerlink" title="分析(Analysis)"></a>分析(Analysis)</h2><ol>
+<li>不能碰见一个就遍历一次，效率太低，我们先将所有区间按照左端点从小到大进行排序。</li>
+<li>排完序后，当前区间和下一个区间的关系有三种：<br> (1):下一个区间左右端点在当前区间内。<br> (2):下一个区间左端点在当前区间内，右端点在当前区间外。<br> (3):下一个区间左端点在当前区间外。<br> 对于(1),当前区间不用更新。<br> 对于(2),当前区间的右端点更新。<br> 对于(3),当前区间维护完毕，当前区间更新为下一个区间。<h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">void merge(vector&lt;pair&lt;int,int&gt;&gt; &amp;itvs)
 &#123;
-  int l = 0 , r = a.size() -1;
-  while(l &lt; r)
-  &#123;
-    int mid = l + r &gt;&gt;1;
-    if(a[mid] &gt;= x)r = mid;
-    else l = mid + 1;
-  &#125;
-  return l +1;//从1~n的映射。
+vetor&lt;pair&lt;int,int&gt;&gt; res;//用来临时存合并后的区间
+sort(itvs.begin(),itvs.end());//排序
+int st = -2e9, ed = -2e9;//无穷小初始化
+for(auto itv : itvs)
+&#123;
+ if(ed &lt; itv.first)//情况(3)
+ &#123;
+   if(st != -2e9)res.push_back(&#123;st,ed&#125;);
+   st = itv.first,ed = itv.second;
+ &#125;
+ else ed = max(ed, itv.second);//情况(1)、(2)
+&#125;
+if(st!= -2e9)res.push_back(&#123;st,ed&#125;);//最后一组放入
+itvs = res;//还给itvs
 &#125;
 </code></pre>
+</li>
+</ol>
 <hr>
-<h2 id="应用：区间和"><a href="#应用：区间和" class="headerlink" title="应用：区间和"></a>应用：区间和</h2><blockquote>
-<blockquote>
-<p>假定有一个无限长的数轴，数轴上每个坐标上的数都是0。<br>现在，我们首先进行 n 次操作，每次操作将某一位置x上的数加c。<br>接下来，进行 m 次询问，每个询问包含两个整数l和r，你需要求出在区间[l, r]之间的所有数的和。<br><strong>输入格式</strong><br>第一行包含两个整数n和m。<br>接下来 n 行，每行包含两个整数x和c。<br>再接下里 m 行，每行包含两个整数l和r。<br><strong>输出格式</strong><br>共m行，每行输出一个询问中所求的区间内数字和。<br><strong>数据范围</strong><br>$-10^9≤x≤10^9$,<br>$1≤n,m≤10^5$,<br>$−10^9≤l≤r≤10^9$,<br>$−10000≤c≤10000$<br>输入样例：<br>3 3<br>1 2<br>3 6<br>7 5<br>1 3<br>4 6<br>7 8<br>输出样例：<br>8<br>0<br>5</p>
-</blockquote>
-</blockquote>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>由于坐标数据范围很大，但是数据量较小，考虑离散化处理所有坐标。<br>最后要求区间和，可以使用前缀和来求。</p>
-<hr>
-<p>离散化虽然简单，却是比较实用的一种方法。</p>
+<p>区间合并比较小众，记住就行了。</p>
 
                 
             </div>
@@ -541,8 +532,8 @@ a.erase(unique(a.begin(),a.end()),a.end());
                     
                         <div class="article-tag">
                             
-                                <a href="../../../../tags/%E7%A6%BB%E6%95%A3%E5%8C%96/">
-                                    <span class="chip bg-color">离散化</span>
+                                <a href="../../../../tags/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6/">
+                                    <span class="chip bg-color">区间合并</span>
                                 </a>
                             
                         </div>
@@ -858,13 +849,13 @@ a.erase(unique(a.begin(),a.end()),a.end());
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="../../13/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6(Merge%20Interval)/">
+                <a href="../%E6%A0%88(Stack)/">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../medias/featureimages/20.jpg" class="responsive-img" alt="区间合并(Merge Interval)">
+                        <img src="../../../../medias/featureimages/23.jpg" class="responsive-img" alt="栈(Stack)">
                         
-                        <span class="card-title">区间合并(Merge Interval)</span>
+                        <span class="card-title">栈(Stack)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -881,8 +872,8 @@ a.erase(unique(a.begin(),a.end()),a.end());
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../../../../categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" class="post-category">
-                                    基础算法
+                            <a href="../../../../categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
                                 </a>
                             
                             
@@ -892,8 +883,8 @@ a.erase(unique(a.begin(),a.end()),a.end());
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../tags/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6/">
-                        <span class="chip bg-color">区间合并</span>
+                    <a href="../../../../tags/%E6%A0%88/">
+                        <span class="chip bg-color">栈</span>
                     </a>
                     
                 </div>
@@ -907,13 +898,13 @@ a.erase(unique(a.begin(),a.end()),a.end());
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../%E4%BD%8D%E8%BF%90%E7%AE%97(Bitwise%20operation)/">
+                <a href="../../12/%E7%A6%BB%E6%95%A3%E5%8C%96(Discretization)/">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../medias/featureimages/13.jpg" class="responsive-img" alt="位运算(Bitwise operation)">
+                        <img src="../../../../medias/featureimages/17.jpg" class="responsive-img" alt="离散化(Discretization)">
                         
-                        <span class="card-title">位运算(Bitwise operation)</span>
+                        <span class="card-title">离散化(Discretization)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -941,8 +932,8 @@ a.erase(unique(a.begin(),a.end()),a.end());
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
-                        <span class="chip bg-color">位运算</span>
+                    <a href="../../../../tags/%E7%A6%BB%E6%95%A3%E5%8C%96/">
+                        <span class="chip bg-color">离散化</span>
                     </a>
                     
                 </div>
