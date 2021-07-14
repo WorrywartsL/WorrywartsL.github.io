@@ -4,6 +4,81 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2021/07/14/Trie%E6%A0%91/"/>
+      <url>/2021/07/14/Trie%E6%A0%91/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介-Introduction"><a href="#简介-Introduction" class="headerlink" title="简介(Introduction)"></a>简介(Introduction)</h2><blockquote><blockquote><p><strong>Trie树</strong>又称单词查找树，字典树，是一种树形结构，是一种哈希树的变种。典型应用是用于统计，排序和保存大量的字符串（但不仅限于字符串），所以经常被搜索引擎系统用于文本词频统计。  </p></blockquote></blockquote><h2 id="描述-Description"><a href="#描述-Description" class="headerlink" title="描述(Description)"></a>描述(Description)</h2><p>Trie树一般用于高效存储和查找字符串集合的数据结构。其基本操作有：查找、插入和删除(删除操作比较少见)。</p><h2 id="示例-Example"><a href="#示例-Example" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p>Trie如是存储字符串集合：</p><p><img src="https://i.loli.net/2021/07/14/aiysr9jZSnzFcdT.png" alt="字典树示例1"></p><p>该Trie树实现了存储字符串：$abcdef、abdef、aced、bcdf、bcff、cdaa、bcdc$(打* 的表示这是单词的结尾)<br>下面来实现两个常见操作：插入和查询。</p><h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><ol><li><p>插入操作：</p><pre><code class="line-numbers language-cpp">char str[N];int son[N][26], cnt[N];//这里以26个小写英文字母为边。//cnt表示以当前这个结点为结尾的单词有多少个。int idx = 0;  // 下标是0的点是根节点也是空节点void Insert(str[])&#123; int p = 0; for(int i = 0; str[i];i++) &#123;     int t = str[i] - &#39;a&#39;;//a-z 映射到0-25；     if(!son[p][t])son[p][t] = ++idx;//这个结点不存在，就创建出来。     p = son[p][t];//结束的点就是最后一个点 &#125; cnt[p]++;//以这个点为结尾的一个单词。&#125;</code></pre></li><li><p>查询操作：</p><pre><code class="line-numbers language-cpp">int Query(char str[])&#123; int p = 0;//从根开始 for(int i = 0;str[i]; i++) &#123;     int t = str[i] - &#39;a&#39;;     if(!son[p][t]) return 0;//找不到就返回     p = son[p][t]; &#125; return cnt[p];&#125;</code></pre></li></ol><hr><p>Trie树的基本操作。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Trie树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>KMP匹配算法</title>
+      <link href="/2021/07/14/KMP%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/"/>
+      <url>/2021/07/14/KMP%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介-Introduction"><a href="#简介-Introduction" class="headerlink" title="简介(Introduction)"></a>简介(Introduction)</h2><blockquote><blockquote><p>KMP算法是一种改进的字符串匹配算法，由D.E.Knuth，J.H.Morris和V.R.Pratt提出的，因此人们称它为克努特—莫里斯—普拉特操作（简称KMP算法）。KMP算法的核心是利用匹配失败后的信息，尽量减少模式串与主串的匹配次数以达到快速匹配的目的。具体实现就是通过一个next()函数实现，函数本身包含了模式串的局部匹配信息。</p></blockquote></blockquote><h2 id="描述-Description"><a href="#描述-Description" class="headerlink" title="描述(Description)"></a>描述(Description)</h2><p>KMP是对朴素的字符匹配的一种优化。利用的是匹配失败过程中残留的有用信息。</p><h2 id="应用-KMP字符串"><a href="#应用-KMP字符串" class="headerlink" title="应用:KMP字符串"></a>应用:KMP字符串</h2><blockquote><blockquote><p>给定一个主串S，以及一个模式串P，所有字符串中只包含大小写英文字母以及阿拉伯数字。<br>模式串P在主串S中多次作为子串出现。<br>求出模式串P在主串S中所有出现的位置的起始下标。<br><strong>输入格式</strong><br>第一行输入整数N，表示字符串P的长度。<br>第二行输入字符串P。<br>第三行输入整数M，表示字符串S的长度。<br>第四行输入字符串S。<br><strong>输出格式</strong><br>共一行，输出所有出现位置的起始下标（下标从0开始计数），整数之间用空格隔开。<br><strong>数据范围</strong><br>$1≤N≤10^5$<br>$1≤M≤10^6$<br><strong>输入样例：</strong><br>3<br>aba<br>5<br>ababa<br><strong>输出样例：</strong><br>0 2  </p></blockquote></blockquote><p>首先我们都会考虑朴素做法：利用双指针算法，对于每一个字符尝试匹配。</p><pre><code class="line-numbers language-cpp">for(int i = 1; i &lt;= n -m; i++)&#123;    bool flag = true;    for(int j = 1; j &lt;= m ; j++)    if(s[i + j - 1] != p[j])    &#123;        flag = false;        break;//对于本题再记录一下下标即可。    &#125;&#125;</code></pre><p>朴素算法的时间复杂度为$0(mn)$。<br>考虑优化：朴素做法时间效率低下的原因是每次匹配失败后完全“从头来过”，完全不利用“残留的信息”。<br>那么如何利用所谓的“残留的信息”?<br>有这样一种情况：对于当前匹配<strong>成功的部分</strong>,如果这部分与<strong>自身</strong>匹配也有<strong>成功的部分</strong> *(这里成功的部分不包括这部分整个，毕竟自身与自身匹配一定成功，但是没有意义)*，那么说明当对于模式串的整体虽然匹配失败了，但是匹配成功的部分可以通过移动，来继续尝试完成匹配。</p><p>看一个栗子！：</p><h2 id="示例-Example"><a href="#示例-Example" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/14/Id2egC4QVbUmvPw.jpg" alt="KMP示例1"></p><p>当主串中第i个字符，与模式串中第j个字符匹配失败，但是有<strong>成功的部分</strong>为$ababab$，且$ababab$有最长的成功的部分$abab$。那么只要移动两格能继续匹配：主串第i个字符与模式串第j-2个字符匹配。(相当于模式串的匹配点左移了)<br>受次启发，对于更一般的：<br>当主串第i个字符与模式串第j个字符匹配失败时，假设经过移动后，主串中第i个字符继续与模式串第k个字符匹配(k &lt; j),那么此时模式串前k - 1个字母与主串i前面k - 1个字母完成匹配。<br>因而有关系：$p_1p_2…p_{k-1} = s_{i-(k-1)}s_{i-(k-2)}…s_{i-1}$.<br>并且k为所有满足条件的最大k(也就是说这是最长的<strong>成功的部分</strong>)<br>而我们已经有之前匹配完成的部分：<br>$p_{j - (k - 1)}p_{j-(k-2)}…p_{j-1} = s_{i-(k-1)}s_{i-(k-2)}…s_{i-1}$<br>对比两式可得：$p_1p_2…p_{k-1}$ =$p_{j - (k - 1)}p_{j-(k-2)}…p_{j-1}$ (这就是成功部分中最长的<strong>成功的部分</strong>对应的等式)。(无心套娃)<br>(康康图)</p><h2 id="示例-Example-1"><a href="#示例-Example-1" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/14/1Dp6G3KwTd2Vamv.jpg" alt="KMP示例2"></p><p>因此，如果模式串中存在满足最后一个式子的字符，便可做以上优化。<br>我们利用数组$ne[j] = k$,表示模式串中第j个字符与主串对应字符匹配失败时，模式串中能够通过移动，利用<strong>成功的部分</strong>继续完成匹配的字符的位置。<br>有如下定义：  </p><ol><li><p>$ne[1] = 0$，表示第一个字符就匹配失败了，退无可退。</p></li><li><p>当不存在<strong>成功部分自身的成功部分</strong>时，$ne[j] = 1$，重新开始比较。  </p></li><li><p>$ne[j] = max k$ ，k表示<strong>成功的部分的长度</strong>;<br>这样，如果我们成功造出了ne[]数组，那么每次的匹配就能通过ne[]的迭代快速找到继续匹配的机会，或者直接下一轮。  </p></li></ol><table><thead><tr><th>$j$</th><th>$p_j$</th><th>$ne[j]$</th></tr></thead><tbody><tr><td>1</td><td>a</td><td>0</td></tr><tr><td>2</td><td>b</td><td>1</td></tr><tr><td>3</td><td>c</td><td>1</td></tr><tr><td>4</td><td>a</td><td>1</td></tr><tr><td>5</td><td>b</td><td>2</td></tr><tr><td>6</td><td>c</td><td>3</td></tr><tr><td>7</td><td>d</td><td>4</td></tr><tr><td>8</td><td>a</td><td>1</td></tr><tr><td>9</td><td>b</td><td>2</td></tr><tr><td>10</td><td>c</td><td>3</td></tr><tr><td>11</td><td>d</td><td>4</td></tr><tr><td>12</td><td>e</td><td>1</td></tr></tbody></table><p>  假设我们完成了ne[]的建造，那么代码就可以这样写了:</p><h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">for(int i = 1, j = 0;i &lt;= m ;i++)&#123;    while(j&amp;&amp;s[i] != p[j + 1])j = ne[j];    if(s[i] == p[j + 1])j++;    if(j == n)    &#123;        cout&lt;&lt;i - n &lt;&lt;&quot; &quot;;        j = ne[j];    &#125;&#125;</code></pre><p>那么问题又又来了ne[]数组怎么建？<br>嗯，我们知道ne[]数组取决于模式串本身，和主串没什么关系。我们可以从定义出发，通过递推来求ne[]。<br>首先j = 1时，ne[1] = 0,前面已经给出了，表示第一个就匹配失败了，直接重新开始匹配。<br>j &gt; 1时,令ne[j] = k，表明模式串1<del>j-1子串中存在一部分具有<strong>成功的部分</strong>,且<strong>最大长度</strong>为k。等价于有等式：<br>$p_1p_2…p_{k-1}$ =$p_{j - (k - 1)}p_{j-(k-2)}…p_{j-1}$.<br>如果 $p_k = p_j$,那么等式延长为：<br>$p_1p_2…p_{k-1}p_k$ =$p_{j - (k - 1)}p_{j-(k-2)}…p_{j-1}p_j$，表明模式串1</del>j的最大子串(<strong>成功的部分</strong>）以此类推，直到使等式延长的条件不满足，即不存在$p_k = p_j$。<br>有递推式:$ne[j + 1] = k + 1 = ne[j] + 1$;<br>当等式延长条件不满足了，我们自然有：$p_k ≠ p_j$.<br>此时可以把求ne[]值的问题看成<strong>模式串本身进行匹配，并且匹配到了不成功的部分</strong>那么问题又回到了匹配本身：当匹配不成功时，我们又要研究<strong>成功的部分</strong>(这是这题自己在套娃了！)<br>现在已经有：$p_{j-(k-1)} = p_1,p_{j-(k-2)} = p_2,…,p_j = p_{k-1}$，此时应该将模式串滑动到<strong>用模式串中第ne[k]个字符与“主串”(这里也模式串)中的第j个字符相比较</strong>。<br>如果令ne[k] = k’,则有$p_{k’} = p_j$,说明此时在模式串中第j+1个字符之前存在一个长度为k’的最长<strong>成功的部分</strong>，这段长度与从模式串中从首字母起，长度为k’的子串相等。<br>有：$p_1p_2…p_{k’} = p_{j-(k’-1)}p_{j-(k’-2)}…p_j (1&lt;k’&lt;k&lt;j) $.<br>由此可得$ne[j + 1] = k’ + 1 = ne[ne[j]] + 1$;<br>这里比较难理解，看一个例子：  </p><h2 id="示例-Example-2"><a href="#示例-Example-2" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/14/Ivt1roQHLnqMfVj.jpg" alt="KMP示例3"></p><p>同理，如果$p_{k’} ≠ p_j$,那么模式串继续向右滑动，使得模式串第ne[k’] (也就是ne[ne[k]])个字符与$p_j$对齐，如此反复。<br>会有两种结局：  </p><ol><li>直到$p_j$和模式串某个字符匹配成功。</li><li>不存在任何一个k’满足：<br>$p_1p_2…p_{k’} = p_{j-(k’-1)}p_{j-(k’-2)}…p_j (1&lt;k’&lt;k&lt;j) $，那么$ne[k + 1] = 1$;<br>至此我们可以实现$ne[]$代码：  <h2 id="代码实现-Code-1"><a href="#代码实现-Code-1" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">for(int i = 2, j = 0;i &lt;= n ;i++)&#123;//i从2开始，因为从1开始，自身必然完全匹配自身，没意义。 while(j&amp;&amp;p[i] != p[j + 1])j = ne[j]; if(p[i] == p[j + 1])j++; ne[i] = j;&#125;</code></pre>求ne[]的理论虽然复杂，但是代码和主串与模式串匹配的代码十分相似，其实本质上都是两个串的匹配。</li></ol><hr><p>关于优化KMP和拓展KMP暂时保留，因为KMP本身就需要好好理解，多了反而不好。(我也不会)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> KMP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>队列(Queue)</title>
+      <link href="/2021/07/14/%E9%98%9F%E5%88%97(Queue)/"/>
+      <url>/2021/07/14/%E9%98%9F%E5%88%97(Queue)/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介-Introduction"><a href="#简介-Introduction" class="headerlink" title="简介(Introduction)"></a>简介(Introduction)</h2><blockquote><blockquote><p>队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。</p></blockquote></blockquote><h2 id="描述-Description"><a href="#描述-Description" class="headerlink" title="描述(Description)"></a>描述(Description)</h2><p>队列是一种<strong>先进先出</strong>的结构，可以想象为平时人们的排队打饭。先排队的人一定是在队列的前面，就会先打饭，先离开。反之，后来排队的人自然也后打饭，后离开。</p><p>队列的实现也比较好理解，直接上基本操作的代码：</p><h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><ol><li><p>向队尾插入一个元素</p><pre><code class="line-numbers language-cpp">void push(int x)&#123; q[++tt] = x;//tt表示队尾，初始为-1&#125;</code></pre></li><li><p>从队头弹出一个元素</p><pre><code class="line-numbers language-cpp">void pop()&#123; hh++;&#125;</code></pre></li><li><p>判断是否队空</p><pre><code class="line-numbers language-cpp">bool empty()&#123; if(hh &lt;= tt)return false ; else return true;&#125;</code></pre></li><li><p>查询队头元素</p><pre><code class="line-numbers language-cpp">int query()&#123; return q[hh];&#125;</code></pre><h2 id="应用：单调队列"><a href="#应用：单调队列" class="headerlink" title="应用：单调队列"></a>应用：单调队列</h2><blockquote><blockquote><p>给定一个大小为$n≤10^6$的数组。<br>有一个大小为k的滑动窗口，它从数组的最左边移动到最右边。<br>您只能在窗口中看到k个数字。<br>每次滑动窗口向右移动一个位置。<br>您的任务是确定滑动窗口位于每个位置时，窗口中的最大值和最小值。<br><strong>输入格式</strong><br>输入包含两行。<br>第一行包含两个整数n和k，分别代表数组长度和滑动窗口的长度。<br>第二行有n个整数，代表数组的具体数值。<br>同行数据之间用空格隔开。<br><strong>输出格式</strong><br>输出包含两个。<br>第一行输出，从左至右，每个位置滑动窗口中的最小值。<br>第二行输出，从左至右，每个位置滑动窗口中的最大值。<br><strong>输入样例：</strong><br>8 3<br>1 3 -1 -3 5 3 6 7<br><strong>输出样例：</strong><br>-1 -3 -3 -3 3 3<br>3 3 5 5 6 7  </p></blockquote></blockquote></li></ol><p>和单调栈类似，首先考虑暴力：对于每个“窗口”(队列)，通过遍历寻找队列中的最大值和最小值，然后输出。时间复杂度为$0(nk)$。大概率会超时的。<br>考虑和单调栈类似的单调性优化：<br>对于队列$[tt,hh]$中的所有元素寻找<strong>最小值</strong>，如果存在一组逆序对：$a_x ≥ a_y,x &lt; y $ 那么$a_x$的存在一定是不必要的。因此，整个队列的存在一定是<strong>单调上升</strong>的，最小值就是队头。</p><pre><code class="line-numbers language-cpp">for(int i = 0; i &lt; n ; i++)    &#123;//队列里面存的是数组的下标(要判断队长)，a[]存的是值        if(hh &lt;= tt &amp;&amp; q[hh] &lt; i- k + 1)hh++;//队长度为小于k        while(hh &lt;= tt &amp;&amp; a[q[tt]] &gt;= a[i])tt--;//当有逆序        q[++tt] = i;//下标入队                if(i &gt;= k - 1)cout&lt;&lt;a[q[hh]]&lt;&lt;&quot; &quot;;//前k个数    &#125;</code></pre><p>寻找<strong>最大值</strong>通过类似的单调性思考即可。</p><hr><p>都是队列的基本操作，做了解。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 队列 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>链表(Linked list)</title>
       <link href="/2021/07/13/%E9%93%BE%E8%A1%A8(Linked%20list)/"/>
       <url>/2021/07/13/%E9%93%BE%E8%A1%A8(Linked%20list)/</url>

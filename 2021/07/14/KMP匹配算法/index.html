@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="链表(Linked list), c++,c">
+    <meta name="keywords" content="KMP匹配算法, c++,c">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>链表(Linked list) | L&#39;s Home</title>
+    <title>KMP匹配算法 | L&#39;s Home</title>
     <link rel="icon" type="image/png" href="../../../../favicon.png">
 
     <link rel="stylesheet" type="text/css" href="../../../../libs/awesome/css/all.css">
@@ -255,12 +255,12 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">链表(Linked list)</h1>
+                    <h1 class="description center-align post-title">KMP匹配算法</h1>
                 </div>
             </div>
         </div>
@@ -376,8 +376,8 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                     
                     <div class="article-tag">
                         
-                            <a href="../../../../tags/%E9%93%BE%E8%A1%A8/">
-                                <span class="chip bg-color">链表</span>
+                            <a href="../../../../tags/KMP/">
+                                <span class="chip bg-color">KMP</span>
                             </a>
                         
                     </div>
@@ -401,21 +401,21 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-13
+                    2021-07-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-13
+                    2021-07-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    647
+                    2k
                 </div>
                 
 
@@ -439,99 +439,138 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
             <div id="articleContent">
                 <h2 id="简介-Introduction"><a href="#简介-Introduction" class="headerlink" title="简介(Introduction)"></a>简介(Introduction)</h2><blockquote>
 <blockquote>
-<p>链表是一种物理存储单元上非连续、非顺序的<strong>存储结构</strong>，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。链表由一系列结点（链表中每一个元素称为结点）组成，结点可以在运行时动态生成。每个结点包括两个部分：一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域。</p>
+<p>KMP算法是一种改进的字符串匹配算法，由D.E.Knuth，J.H.Morris和V.R.Pratt提出的，因此人们称它为克努特—莫里斯—普拉特操作（简称KMP算法）。KMP算法的核心是利用匹配失败后的信息，尽量减少模式串与主串的匹配次数以达到快速匹配的目的。具体实现就是通过一个next()函数实现，函数本身包含了模式串的局部匹配信息。</p>
 </blockquote>
 </blockquote>
-<h2 id="描述-Description"><a href="#描述-Description" class="headerlink" title="描述(Description)"></a>描述(Description)</h2><p>由于结构体加指针类型的链表在开辟内存空间时运行速度很慢，这里只介绍利用<strong>数组模拟的链表</strong>(静态链表)。</p>
-<h2 id="示例-Example"><a href="#示例-Example" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/13/hP1qeHp8d6Jf5Kn.jpg" alt="链表示例"></p>
-<h1 id="单链表-Singly-Linked-List"><a href="#单链表-Singly-Linked-List" class="headerlink" title="单链表(Singly Linked List)"></a>单链表(Singly Linked List)</h1><p>单链表常见的操作：  </p>
+<h2 id="描述-Description"><a href="#描述-Description" class="headerlink" title="描述(Description)"></a>描述(Description)</h2><p>KMP是对朴素的字符匹配的一种优化。利用的是匹配失败过程中残留的有用信息。</p>
+<h2 id="应用-KMP字符串"><a href="#应用-KMP字符串" class="headerlink" title="应用:KMP字符串"></a>应用:KMP字符串</h2><blockquote>
+<blockquote>
+<p>给定一个主串S，以及一个模式串P，所有字符串中只包含大小写英文字母以及阿拉伯数字。<br>模式串P在主串S中多次作为子串出现。<br>求出模式串P在主串S中所有出现的位置的起始下标。<br><strong>输入格式</strong><br>第一行输入整数N，表示字符串P的长度。<br>第二行输入字符串P。<br>第三行输入整数M，表示字符串S的长度。<br>第四行输入字符串S。<br><strong>输出格式</strong><br>共一行，输出所有出现位置的起始下标（下标从0开始计数），整数之间用空格隔开。<br><strong>数据范围</strong><br>$1≤N≤10^5$<br>$1≤M≤10^6$<br><strong>输入样例：</strong><br>3<br>aba<br>5<br>ababa<br><strong>输出样例：</strong><br>0 2  </p>
+</blockquote>
+</blockquote>
+<p>首先我们都会考虑朴素做法：利用双指针算法，对于每一个字符尝试匹配。</p>
+<pre><code class="line-numbers language-cpp">for(int i = 1; i &lt;= n -m; i++)
+&#123;
+    bool flag = true;
+    for(int j = 1; j &lt;= m ; j++)
+    if(s[i + j - 1] != p[j])
+    &#123;
+        flag = false;
+        break;//对于本题再记录一下下标即可。
+    &#125;
+&#125;
+</code></pre>
+<p>朴素算法的时间复杂度为$0(mn)$。<br>考虑优化：朴素做法时间效率低下的原因是每次匹配失败后完全“从头来过”，完全不利用“残留的信息”。<br>那么如何利用所谓的“残留的信息”?<br>有这样一种情况：对于当前匹配<strong>成功的部分</strong>,如果这部分与<strong>自身</strong>匹配也有<strong>成功的部分</strong> *(这里成功的部分不包括这部分整个，毕竟自身与自身匹配一定成功，但是没有意义)*，那么说明当对于模式串的整体虽然匹配失败了，但是匹配成功的部分可以通过移动，来继续尝试完成匹配。</p>
+<p>看一个栗子！：</p>
+<h2 id="示例-Example"><a href="#示例-Example" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/14/Id2egC4QVbUmvPw.jpg" alt="KMP示例1"></p>
+<p>当主串中第i个字符，与模式串中第j个字符匹配失败，但是有<strong>成功的部分</strong>为$ababab$，且$ababab$有最长的成功的部分$abab$。那么只要移动两格能继续匹配：主串第i个字符与模式串第j-2个字符匹配。(相当于模式串的匹配点左移了)<br>受次启发，对于更一般的：<br>当主串第i个字符与模式串第j个字符匹配失败时，假设经过移动后，主串中第i个字符继续与模式串第k个字符匹配(k &lt; j),那么此时模式串前k - 1个字母与主串i前面k - 1个字母完成匹配。<br>因而有关系：$p_1p_2…p_{k-1} = s_{i-(k-1)}s_{i-(k-2)}…s_{i-1}$.<br>并且k为所有满足条件的最大k(也就是说这是最长的<strong>成功的部分</strong>)<br>而我们已经有之前匹配完成的部分：<br>$p_{j - (k - 1)}p_{j-(k-2)}…p_{j-1} = s_{i-(k-1)}s_{i-(k-2)}…s_{i-1}$<br>对比两式可得：$p_1p_2…p_{k-1}$ =$p_{j - (k - 1)}p_{j-(k-2)}…p_{j-1}$ (这就是成功部分中最长的<strong>成功的部分</strong>对应的等式)。(无心套娃)<br>(康康图)</p>
+<h2 id="示例-Example-1"><a href="#示例-Example-1" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/14/1Dp6G3KwTd2Vamv.jpg" alt="KMP示例2"></p>
+<p>因此，如果模式串中存在满足最后一个式子的字符，便可做以上优化。<br>我们利用数组$ne[j] = k$,表示模式串中第j个字符与主串对应字符匹配失败时，模式串中能够通过移动，利用<strong>成功的部分</strong>继续完成匹配的字符的位置。<br>有如下定义：  </p>
 <ol>
-<li>初始化<h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">int head, e[N],ne[N], idx;
-//初始化链表：
-void Init()
-&#123;
- head = -1;
- idx = 0;
-&#125;
-</code></pre>
+<li><p>$ne[1] = 0$，表示第一个字符就匹配失败了，退无可退。</p>
 </li>
-<li>向表头插入一个数：</li>
+<li><p>当不存在<strong>成功部分自身的成功部分</strong>时，$ne[j] = 1$，重新开始比较。  </p>
+</li>
+<li><p>$ne[j] = max k$ ，k表示<strong>成功的部分的长度</strong>;<br>这样，如果我们成功造出了ne[]数组，那么每次的匹配就能通过ne[]的迭代快速找到继续匹配的机会，或者直接下一轮。  </p>
+</li>
 </ol>
-<h2 id="示例-Example-1"><a href="#示例-Example-1" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/13/1HUxfiW7tVM2NIc.jpg" alt="链表插入"></p>
-<h2 id="代码实现-Code-1"><a href="#代码实现-Code-1" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">void add_to_head(int x)
+<table>
+<thead>
+<tr>
+<th>$j$</th>
+<th>$p_j$</th>
+<th>$ne[j]$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>a</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>b</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>c</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>a</td>
+<td>1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>b</td>
+<td>2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>c</td>
+<td>3</td>
+</tr>
+<tr>
+<td>7</td>
+<td>d</td>
+<td>4</td>
+</tr>
+<tr>
+<td>8</td>
+<td>a</td>
+<td>1</td>
+</tr>
+<tr>
+<td>9</td>
+<td>b</td>
+<td>2</td>
+</tr>
+<tr>
+<td>10</td>
+<td>c</td>
+<td>3</td>
+</tr>
+<tr>
+<td>11</td>
+<td>d</td>
+<td>4</td>
+</tr>
+<tr>
+<td>12</td>
+<td>e</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>  假设我们完成了ne[]的建造，那么代码就可以这样写了:</p>
+<h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">for(int i = 1, j = 0;i &lt;= m ;i++)
 &#123;
-    e[idx] = x;
-    ne[idx] = head;
-    head = idx++;
+    while(j&amp;&amp;s[i] != p[j + 1])j = ne[j];
+    if(s[i] == p[j + 1])j++;
+    if(j == n)
+    &#123;
+        cout&lt;&lt;i - n &lt;&lt;&quot; &quot;;
+        j = ne[j];
+    &#125;
 &#125;
 </code></pre>
-<ol start="3">
-<li>在第k个数后面插入一个数</li>
-</ol>
-<h2 id="代码实现-Code-2"><a href="#代码实现-Code-2" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">void add(int k, int x)
-&#123;
-    e[idx] = x;
-    ne[idx] = ne[k];
-    ne[k] = idx++;
+<p>那么问题又又来了ne[]数组怎么建？<br>嗯，我们知道ne[]数组取决于模式串本身，和主串没什么关系。我们可以从定义出发，通过递推来求ne[]。<br>首先j = 1时，ne[1] = 0,前面已经给出了，表示第一个就匹配失败了，直接重新开始匹配。<br>j &gt; 1时,令ne[j] = k，表明模式串1<del>j-1子串中存在一部分具有<strong>成功的部分</strong>,且<strong>最大长度</strong>为k。等价于有等式：<br>$p_1p_2…p_{k-1}$ =$p_{j - (k - 1)}p_{j-(k-2)}…p_{j-1}$.<br>如果 $p_k = p_j$,那么等式延长为：<br>$p_1p_2…p_{k-1}p_k$ =$p_{j - (k - 1)}p_{j-(k-2)}…p_{j-1}p_j$，表明模式串1</del>j的最大子串(<strong>成功的部分</strong>）以此类推，直到使等式延长的条件不满足，即不存在$p_k = p_j$。<br>有递推式:$ne[j + 1] = k + 1 = ne[j] + 1$;<br>当等式延长条件不满足了，我们自然有：$p_k ≠ p_j$.<br>此时可以把求ne[]值的问题看成<strong>模式串本身进行匹配，并且匹配到了不成功的部分</strong>那么问题又回到了匹配本身：当匹配不成功时，我们又要研究<strong>成功的部分</strong>(这是这题自己在套娃了！)<br>现在已经有：$p_{j-(k-1)} = p_1,p_{j-(k-2)} = p_2,…,p_j = p_{k-1}$，此时应该将模式串滑动到<strong>用模式串中第ne[k]个字符与“主串”(这里也模式串)中的第j个字符相比较</strong>。<br>如果令ne[k] = k’,则有$p_{k’} = p_j$,说明此时在模式串中第j+1个字符之前存在一个长度为k’的最长<strong>成功的部分</strong>，这段长度与从模式串中从首字母起，长度为k’的子串相等。<br>有：$p_1p_2…p_{k’} = p_{j-(k’-1)}p_{j-(k’-2)}…p_j (1&lt;k’&lt;k&lt;j) $.<br>由此可得$ne[j + 1] = k’ + 1 = ne[ne[j]] + 1$;<br>这里比较难理解，看一个例子：  </p>
+<h2 id="示例-Example-2"><a href="#示例-Example-2" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/14/Ivt1roQHLnqMfVj.jpg" alt="KMP示例3"></p>
+<p>同理，如果$p_{k’} ≠ p_j$,那么模式串继续向右滑动，使得模式串第ne[k’] (也就是ne[ne[k]])个字符与$p_j$对齐，如此反复。<br>会有两种结局：  </p>
+<ol>
+<li>直到$p_j$和模式串某个字符匹配成功。</li>
+<li>不存在任何一个k’满足：<br>$p_1p_2…p_{k’} = p_{j-(k’-1)}p_{j-(k’-2)}…p_j (1&lt;k’&lt;k&lt;j) $，那么$ne[k + 1] = 1$;<br>至此我们可以实现$ne[]$代码：  <h2 id="代码实现-Code-1"><a href="#代码实现-Code-1" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">for(int i = 2, j = 0;i &lt;= n ;i++)
+&#123;//i从2开始，因为从1开始，自身必然完全匹配自身，没意义。
+ while(j&amp;&amp;p[i] != p[j + 1])j = ne[j];
+ if(p[i] == p[j + 1])j++;
+ ne[i] = j;
 &#125;
 </code></pre>
-<ol start="4">
-<li>删除第k个插入的数的后面一个数：</li>
+求ne[]的理论虽然复杂，但是代码和主串与模式串匹配的代码十分相似，其实本质上都是两个串的匹配。</li>
 </ol>
-<h2 id="示例-Example-2"><a href="#示例-Example-2" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><p><img src="https://i.loli.net/2021/07/13/tu7HDeTvQ5iqnaW.jpg" alt="链表删除"></p>
-<h2 id="代码实现-Code-3"><a href="#代码实现-Code-3" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">void del(int k)//注意传入时要传k - 1;
-&#123;
-    ne[k] = ne[ne[k]];
-&#125;
-</code></pre>
-<ol start="5">
-<li>删除头结点</li>
-</ol>
-<h2 id="代码实现-Code-4"><a href="#代码实现-Code-4" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">head = ne[head];
-</code></pre>
 <hr>
-<h1 id="双链表-Dual-Linked-List"><a href="#双链表-Dual-Linked-List" class="headerlink" title="双链表(Dual Linked List)"></a>双链表(Dual Linked List)</h1><p>双链表没有单链表常用，因为各种操作稍微复杂。<br>直接给出代码和一点解释：</p>
-<h2 id="代码实现-Code-5"><a href="#代码实现-Code-5" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><ol>
-<li>初始化</li>
-</ol>
-<pre><code class="line-numbers language-cpp">  int l[N],r[N],e[N];//左右指针和值
-int cnt=0;
-void Init()
-&#123;
-    //0表示左端点，1表示右端点
-    r[0]=1,l[1]=0;//一开始左右互指
-    cnt=1; //cnt从1开始
-&#125;
-</code></pre>
-<ol start="2">
-<li><p>在第k个插入的点右边插入值为x的点(右插)(传入k + 1)</p>
-<pre><code class="line-numbers language-cpp">void add_r(int k,int x)
-&#123;
- e[++cnt]=x;//计数器加一并且存值
- r[cnt]=r[k];
- l[cnt]=k；
- l[r[k]]=cnt;
- r[k]=cnt; //注意一定要先改变r[k]的左指针，再改变r[k]
- //一旦先改变r[k]，那么r[k]的左指针就失效了。
-</code></pre>
-</li>
-<li><p>在第k个插入的点左边插入值为x的点(左插)(传入k + 1)<br>直接调用</p>
-<pre><code class="line-numbers language-cpp">add_r(l[k],x);
-//第k个点左边插入等价于在第k个点的左边一个点的右边插入。
-//当然，模仿又插再写一个也行。
-</code></pre>
-</li>
-<li><p>删除第k个插入的点(传入 k + 1)</p>
-<pre><code class="line-numbers language-cpp">void del(int k)
-&#123;
- r[l[k]]=r[k];
- l[r[k]]=l[k];
-&#125;
-</code></pre>
-</li>
-</ol>
-<hr>
-<p>这些都是链表的基本操作，尤其是单链表要熟练掌握。</p>
+<p>关于优化KMP和拓展KMP暂时保留，因为KMP本身就需要好好理解，多了反而不好。(我也不会)</p>
 
                 
             </div>
@@ -596,8 +635,8 @@ void Init()
                     
                         <div class="article-tag">
                             
-                                <a href="../../../../tags/%E9%93%BE%E8%A1%A8/">
-                                    <span class="chip bg-color">链表</span>
+                                <a href="../../../../tags/KMP/">
+                                    <span class="chip bg-color">KMP</span>
                                 </a>
                             
                         </div>
@@ -913,13 +952,13 @@ void Init()
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="../../14/%E9%98%9F%E5%88%97(Queue)/">
+                <a href="../Trie%E6%A0%91/">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../medias/featureimages/0.jpg" class="responsive-img" alt="队列(Queue)">
+                        <img src="../../../../medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">队列(Queue)</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -947,8 +986,8 @@ void Init()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../tags/%E9%98%9F%E5%88%97/">
-                        <span class="chip bg-color">队列</span>
+                    <a href="../../../../tags/Trie%E6%A0%91/">
+                        <span class="chip bg-color">Trie树</span>
                     </a>
                     
                 </div>
@@ -962,13 +1001,13 @@ void Init()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../%E6%A0%88(Stack)/">
+                <a href="../%E9%98%9F%E5%88%97(Queue)/">
                     <div class="card-image">
                         
                         
-                        <img src="../../../../medias/featureimages/23.jpg" class="responsive-img" alt="栈(Stack)">
+                        <img src="../../../../medias/featureimages/0.jpg" class="responsive-img" alt="队列(Queue)">
                         
-                        <span class="card-title">栈(Stack)</span>
+                        <span class="card-title">队列(Queue)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -979,7 +1018,7 @@ void Init()
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-14
                             </span>
                         <span class="publish-author">
                             
@@ -996,8 +1035,8 @@ void Init()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../tags/%E6%A0%88/">
-                        <span class="chip bg-color">栈</span>
+                    <a href="../../../../tags/%E9%98%9F%E5%88%97/">
+                        <span class="chip bg-color">队列</span>
                     </a>
                     
                 </div>
