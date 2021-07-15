@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="双指针算法, c++,c">
+    <meta name="keywords" content="模拟堆(Heap), c++,c">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,18 +16,18 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>双指针算法 | L&#39;s Home</title>
-    <link rel="icon" type="image/png" href="../../../favicon.png">
+    <title>模拟堆(Heap) | L&#39;s Home</title>
+    <link rel="icon" type="image/png" href="../../../../favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="../../../libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="../../../libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="../../../libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../css/matery.css">
-    <link rel="stylesheet" type="text/css" href="../../../css/my.css">
+    <link rel="stylesheet" type="text/css" href="../../../../libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="../../../../libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="../../../../libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../css/matery.css">
+    <link rel="stylesheet" type="text/css" href="../../../../css/my.css">
 
-    <script src="../../../libs/jquery/jquery.min.js"></script>
+    <script src="../../../../libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="atom.xml" title="L's Home" type="application/atom+xml">
 </head>
@@ -47,9 +47,9 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
-                <a href="../../../index.html" class="waves-effect waves-light">
+                <a href="../../../../index.html" class="waves-effect waves-light">
                     
-                    <img src="../../../medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="../../../../medias/logo.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">L&#39;s Home</span>
                 </a>
@@ -61,7 +61,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../index.html" class="waves-effect waves-light">
+    <a href="../../../../index.html" class="waves-effect waves-light">
       
       <i class="fas fa-home" style="zoom: 0.6;"></i>
       
@@ -72,7 +72,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../tags" class="waves-effect waves-light">
+    <a href="../../../../tags" class="waves-effect waves-light">
       
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
@@ -83,7 +83,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../categories" class="waves-effect waves-light">
+    <a href="../../../../categories" class="waves-effect waves-light">
       
       <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
       
@@ -94,7 +94,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../archives" class="waves-effect waves-light">
+    <a href="../../../../archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
@@ -105,7 +105,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../about" class="waves-effect waves-light">
+    <a href="../../../../about" class="waves-effect waves-light">
       
       <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
       
@@ -116,7 +116,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="../../../contact" class="waves-effect waves-light">
+    <a href="../../../../contact" class="waves-effect waves-light">
       
       <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
@@ -137,7 +137,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
 
     <div class="mobile-head bg-color">
         
-        <img src="../../../medias/logo.png" class="logo-img circle responsive-img">
+        <img src="../../../../medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">L&#39;s Home</div>
         <div class="logo-desc">
@@ -153,7 +153,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
         
         <li class="m-nav-item">
 	  
-		<a href="../../../index.html" class="waves-effect waves-light">
+		<a href="../../../../index.html" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-home"></i>
 			
@@ -164,7 +164,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
         
         <li class="m-nav-item">
 	  
-		<a href="../../../tags" class="waves-effect waves-light">
+		<a href="../../../../tags" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-tags"></i>
 			
@@ -175,7 +175,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
         
         <li class="m-nav-item">
 	  
-		<a href="../../../categories" class="waves-effect waves-light">
+		<a href="../../../../categories" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-bookmark"></i>
 			
@@ -186,7 +186,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
         
         <li class="m-nav-item">
 	  
-		<a href="../../../archives" class="waves-effect waves-light">
+		<a href="../../../../archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
@@ -197,7 +197,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
         
         <li class="m-nav-item">
 	  
-		<a href="../../../about" class="waves-effect waves-light">
+		<a href="../../../../about" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
@@ -208,7 +208,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
         
         <li class="m-nav-item">
 	  
-		<a href="../../../contact" class="waves-effect waves-light">
+		<a href="../../../../contact" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-comments"></i>
 			
@@ -233,12 +233,12 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('../../../medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">双指针算法</h1>
+                    <h1 class="description center-align post-title">模拟堆(Heap)</h1>
                 </div>
             </div>
         </div>
@@ -251,7 +251,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="../../../libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="../../../../libs/tocbot/tocbot.css">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -354,8 +354,8 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                     
                     <div class="article-tag">
                         
-                            <a href="../../../tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                                <span class="chip bg-color">双指针</span>
+                            <a href="../../../../tags/%E5%A0%86/">
+                                <span class="chip bg-color">堆</span>
                             </a>
                         
                     </div>
@@ -366,8 +366,8 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="../../../categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" class="post-category">
-                                基础算法
+                            <a href="../../../../categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                数据结构
                             </a>
                         
                     </div>
@@ -379,21 +379,21 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-12
+                    2021-07-15
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-12
+                    2021-07-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    530
+                    806
                 </div>
                 
 
@@ -417,37 +417,60 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
             <div id="articleContent">
                 <h2 id="简介-Introduction"><a href="#简介-Introduction" class="headerlink" title="简介(Introduction)"></a>简介(Introduction)</h2><blockquote>
 <blockquote>
-<p>双指针算法是一种广泛运用的基础算法,在很多地方都有应用。<strong>其核心用处是对于朴素的算法做优化。</strong></p>
+<p><strong>堆(Heap)</strong> 是计算机科学中一类特殊的数据结构的统称。堆通常是一个可以被看做一棵<strong>完全二叉树</strong>的数组对象。</p>
 </blockquote>
 </blockquote>
-<h2 id="描述-Description"><a href="#描述-Description" class="headerlink" title="描述(Description)"></a>描述(Description)</h2><p>双指针算法在很多地方都有应用，只是很多时候我们没有意识到自己正在用。如快速排序、归并排序中都用到了双指针算法。</p>
-<h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><p>双指针算法与其说是一种算法，不如说是一种处理问题的方式，要具体问题具体分析。所以代码实现并不是那么重要。</p>
-<pre><code class="line-numbers language-cpp">for(int i = 0 ; j= 0 ; i &lt; n ; i ++)
-&#123;
-  while(j &lt; i &amp;&amp; check(i,j))j++;
-  //具体的题目具体分析
+<h2 id="描述-Description"><a href="#描述-Description" class="headerlink" title="描述(Description)"></a>描述(Description)</h2><p>堆是来维护一个数组集合的，常见的操作有：插入一个数、求集合的最小值、删除最小值、删除任一元素，修改任一元素。这里只写数组模拟的堆。以小根堆为例，堆有如下性质：<strong>每个点都小于等于它的左右儿子</strong>。<br>模拟堆是用一个一维数组存储的，具体存储形式如下：父节点为$x$,其左儿子为$2x$,其右儿子为$2x+1$。例如：根(父)为1，左儿子为2，右儿子为3。  </p>
+<p>  堆的主要操作由以下两个操作组合实现：</p>
+<h2 id="代码实现-Code"><a href="#代码实现-Code" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><ol>
+<li><p>down 操作:把一个元素往下移(直到不符合下移条件)</p>
+<pre><code class="line-numbers language-cpp">void down(int u)//下移
+&#123;//sizeh 为堆中元素的总个数。
+ int t = u;
+ if(u * 2 &lt;= sizeh&amp;&amp;h[t] &gt; h[u * 2])t = u *2;//等号不能忘，不等号方向留意，找小的。
+ if(u * 2 + 1&lt;= sizeh &amp;&amp;h[t] &gt; h[u * 2 + 1])t = u * 2 +1;
+ if(t != u)
+ &#123;
+     heap_swap(t,u);
+     down(t);//递归实现
+ &#125;
 &#125;
+</code></pre>
+</li>
+<li><p>up 操作：把一个元素往上移(直到不符合上移条件)</p>
+<pre><code class="line-numbers language-cpp">void up(int u)//上移
+&#123;
+ while(u / 2 &amp;&amp; h[u] &lt; h[u / 2])//只要比较它的父节点，因为它的兄弟节点一定大于等于它的父节点。
+ &#123;
+     heap_swap(u, u / 2);
+     u /= 2;//循环实现
+ &#125;
+&#125;
+</code></pre>
+<p>以上两个操作的复杂度都和树高成正比，因此时间复杂度为$O(log)$<br>有了以上两个操作，我们就可以实现下面的基本操作：  </p>
+</li>
+<li><p>求最小值：根据小根堆的性质我们可以知道，第一个数就是最小值。 $O(1)$</p>
+</li>
+<li><p>插入一个数：把这个数放在数组尾部(数组计数+1)，然后up这个数。  $O(logn)$</p>
+</li>
+<li><p> 删除最小值：用最后一个数覆盖掉第一个数(最小值)，数组计数减去1，然后down一遍第一个数。  </p>
+</li>
+<li><p>删除一个数：用最后一个数覆盖掉目标数，然后down、up一下现在这个位置上的数。(由于x的大小未知，可能up、也可能down)  $O(logn)$</p>
+</li>
+<li><p>修改任一一个数：把这个位置的数该为x，然后down、up一下。  </p>
+</li>
+</ol>
+<hr>
+<h2 id="应用：堆排序"><a href="#应用：堆排序" class="headerlink" title="应用：堆排序"></a>应用：堆排序</h2><blockquote>
+<blockquote>
+<p>输入一个长度为n的整数数列，从小到大输出前m小的数。<br><strong>输入格式</strong><br>第一行包含整数n和m。<br>第二行包含n个整数，表示整数数列。<br><strong>输出格式</strong><br>共一行，包含m个整数，表示整数数列中前m小的数。<br><strong>数据范围</strong><br>$1≤m≤n≤10^5$，<br>$1≤$数列中元素$≤10^9$<br><strong>输入样例：</strong><br>5 3<br>4 5 1 3 2<br><strong>输出样例：</strong><br>1 2 3  </p>
+</blockquote>
+</blockquote>
+<h2 id="分析-Analysis"><a href="#分析-Analysis" class="headerlink" title="分析(Analysis)"></a>分析(Analysis)</h2><p>建堆然后取头、去头循环即可。<br>对于建堆：朴素做法为一个一个插入，时间复杂度为$O(nlogn)$,有一个$O(n)$的优化：从$ \frac{n}{2}$down到$1$即可。</p>
+<h2 id="代码实现-Code-1"><a href="#代码实现-Code-1" class="headerlink" title="代码实现(Code)"></a>代码实现(Code)</h2><pre><code class="line-numbers language-cpp">for(int i = n / 2; i;i--)down(i);
 </code></pre>
 <hr>
-<h2 id="应用：最长连续不重复子序列"><a href="#应用：最长连续不重复子序列" class="headerlink" title="应用：最长连续不重复子序列"></a>应用：最长连续不重复子序列</h2><blockquote>
-<blockquote>
-<p>给定一个长度为n的整数序列，请找出最长的不包含重复的数的连续区间，输出它的长度。<br><strong>输入格式</strong><br>第一行包含整数n。<br>第二行包含n个整数（均在0~100000范围内），表示整数序列。<br><strong>输出格式</strong><br>共一行，包含一个整数，表示最长的不包含重复的数的连续区间的长度。<br><strong>数据范围</strong><br>1≤n≤100000<br><strong>输入样例：</strong><br>5<br>1 2 2 3 5<br><strong>输出样例：</strong><br>3  </p>
-</blockquote>
-</blockquote>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这题首先可以想到一个朴素的做法：利用两重for循环暴力求解，其时间复杂度为$O(n^2)$。<br>考虑单调性优化：前后指针的移动是有相互关联的。当前后指针分别指向当前位置的<strong>最长不重复段</strong>，前指针向后移动时，后指针也一定会向后移动。这样时间复杂度就可以优化为$O(n)$。</p>
-<h2 id="核心代码-Code"><a href="#核心代码-Code" class="headerlink" title="核心代码(Code)"></a>核心代码(Code)</h2><pre><code class="line-numbers language-cpp">for(int i = 0 , j = 0 ; i &lt; n ; i++)//循环i
-&#123;
-  s[a[i]]++;//前指针做记录
-  while(s[a[i]] &gt; 1)//大于1说明出现重复
-  &#123;
-    s[a[j]]--;//去掉重复，知道条件不成立
-    j++;
-  &#125;
-  res = max(res, i - j + 1);//取最长不重复区间长。
-&#125;
-</code></pre>
-<h2 id="示例-Example"><a href="#示例-Example" class="headerlink" title="示例(Example)"></a>示例(Example)</h2><h2 id><a href="#" class="headerlink" title></a><img src="https://i.loli.net/2021/07/12/aOVuwkNEL91grhq.jpg" alt="演示双指针"></h2><hr>
-<p>双指针就这样水过去吧！这种还是得多做题。</p>
+<p>堆的基本操作，比较好理解。</p>
 
                 
             </div>
@@ -464,7 +487,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="../../../about" rel="external nofollow noreferrer">WorrywartsL</a>
+                    <a href="../../../../about" rel="external nofollow noreferrer">WorrywartsL</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -487,7 +510,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="../../../about" target="_blank">WorrywartsL</a>
+                    <a href="../../../../about" target="_blank">WorrywartsL</a>
                     !
                 </span>
             </div>
@@ -512,20 +535,20 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                     
                         <div class="article-tag">
                             
-                                <a href="../../../tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                                    <span class="chip bg-color">双指针</span>
+                                <a href="../../../../tags/%E5%A0%86/">
+                                    <span class="chip bg-color">堆</span>
                                 </a>
                             
                         </div>
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="../../../libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="../../../../libs/share/css/share.min.css">
 <div id="article-share">
 
     
     <div class="social-share" data-sites="google,qq,qzone,wechat,weibo,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="../../../libs/share/js/social-share.min.js"></script>
+    <script src="../../../../libs/share/js/social-share.min.js"></script>
     
 
     
@@ -558,7 +581,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
 
     #vcomments textarea {
         box-sizing: border-box;
-        background: url("../../../medias/comment_bg.png") 100% 100% no-repeat;
+        background: url("../../../../medias/comment_bg.png") 100% 100% no-repeat;
     }
 
     #vcomments p {
@@ -792,8 +815,8 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
     </div>
 </div>
 
-<script src="../../../libs/valine/av-min.js"></script>
-<script src="../../../libs/valine/Valine.min.js"></script>
+<script src="../../../../libs/valine/av-min.js"></script>
+<script src="../../../../libs/valine/Valine.min.js"></script>
 <script>
     new Valine({
         el: '#vcomments',
@@ -829,13 +852,13 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="">
+                <a href="../%E5%93%88%E5%B8%8C%E8%A1%A8(Hash%20table)/">
                     <div class="card-image">
                         
                         
-                        <img src="../../../medias/featureimages/13.jpg" class="responsive-img" alt="位运算(Bitwise operation)">
+                        <img src="../../../../medias/featureimages/23.jpg" class="responsive-img" alt="哈希表(Hash table)">
                         
-                        <span class="card-title">位运算(Bitwise operation)</span>
+                        <span class="card-title">哈希表(Hash table)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -846,14 +869,14 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-12
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-15
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../../../categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" class="post-category">
-                                    基础算法
+                            <a href="../../../../categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
                                 </a>
                             
                             
@@ -863,8 +886,8 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
-                        <span class="chip bg-color">位运算</span>
+                    <a href="../../../../tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
+                        <span class="chip bg-color">哈希表</span>
                     </a>
                     
                 </div>
@@ -878,13 +901,13 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="../11/">
+                <a href="../%E5%B9%B6%E6%9F%A5%E9%9B%86(Union-find%20disjoint%20sets)/">
                     <div class="card-image">
                         
                         
-                        <img src="../../../medias/featureimages/23.jpg" class="responsive-img" alt="差分(Adjacent_difference)">
+                        <img src="../../../../medias/featureimages/4.jpg" class="responsive-img" alt="并查集(Union-find disjoint sets)">
                         
-                        <span class="card-title">差分(Adjacent_difference)</span>
+                        <span class="card-title">并查集(Union-find disjoint sets)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -895,14 +918,14 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../../../categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" class="post-category">
-                                    基础算法
+                            <a href="../../../../categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
                                 </a>
                             
                             
@@ -912,8 +935,8 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../tags/%E5%B7%AE%E5%88%86/">
-                        <span class="chip bg-color">差分</span>
+                    <a href="../../../../tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/">
+                        <span class="chip bg-color">并查集</span>
                     </a>
                     
                 </div>
@@ -929,11 +952,11 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="../../../libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="../../../../libs/codeBlock/codeBlockFuction.js"></script>
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="../../../libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="../../../../libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
@@ -941,7 +964,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="../../../libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="../../../../libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -962,7 +985,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
 </div>
 
 
-<script src="../../../libs/tocbot/tocbot.min.js"></script>
+<script src="../../../../libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -1054,7 +1077,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="../../../libs/aplayer/APlayer.min.css">
+        <link rel="stylesheet" href="../../../../libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
         
@@ -1104,7 +1127,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
     </div>
 </div>
 
-<script src="../../../libs/aplayer/APlayer.min.js"></script>
+<script src="../../../../libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
     
@@ -1117,7 +1140,7 @@ color="220,220,220" opacity='0.6' zIndex="-2" count="200" src="//cdn.bootcss.com
                 <span id="year">2021</span>
             
             <span id="year">2021</span>
-            <a href="../../../about" target="_blank">WorrywartsL</a>
+            <a href="../../../../about" target="_blank">WorrywartsL</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -1334,7 +1357,7 @@ $(function () {
         });
     };
 
-    searchFunc('../../../search.xml', 'searchInput', 'searchResult');
+    searchFunc('../../../../search.xml', 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1346,12 +1369,12 @@ $(function () {
 </div>
 
 
-    <script src="../../../libs/materialize/materialize.min.js"></script>
-    <script src="../../../libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="../../../libs/aos/aos.js"></script>
-    <script src="../../../libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="../../../libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="../../../js/matery.js"></script>
+    <script src="../../../../libs/materialize/materialize.min.js"></script>
+    <script src="../../../../libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="../../../../libs/aos/aos.js"></script>
+    <script src="../../../../libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="../../../../libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="../../../../js/matery.js"></script>
 
     <!-- Baidu Analytics -->
 
@@ -1372,10 +1395,10 @@ $(function () {
 </script>
 
     
-    <script src="../../../libs/others/clicklove.js" async="async"></script>
+    <script src="../../../../libs/others/clicklove.js" async="async"></script>
     
     
-    <script async src="../../../libs/others/busuanzi.pure.mini.js"></script>
+    <script async src="../../../../libs/others/busuanzi.pure.mini.js"></script>
     
 
     
@@ -1388,7 +1411,7 @@ $(function () {
     <script type="text/javascript" color="0,0,255"
         pointColor="0,0,255" opacity='0.7'
         zIndex="-1" count="150"
-        src="../../../libs/background/canvas-nest.js"></script>
+        src="../../../../libs/background/canvas-nest.js"></script>
     
 
     
@@ -1396,7 +1419,7 @@ $(function () {
     
 
     
-    <script src="../../../libs/instantpage/instantpage.js" type="module"></script>
+    <script src="../../../../libs/instantpage/instantpage.js" type="module"></script>
     
 
 </body>
